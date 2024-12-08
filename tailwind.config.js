@@ -13,19 +13,16 @@ export default {
         extend: {
             fontFamily: {
                 sans: ["Figtree", ...defaultTheme.fontFamily.sans],
-                main: ['Helvetica Neue', 'Helvetica', ...defaultTheme.fontFamily.sans],
+                main: ['Helvetica Neue', 'Helvetica', 'sans-serif', ...defaultTheme.fontFamily.sans],
+                serif: ['GaramondMTW04', 'serif', ...defaultTheme.fontFamily.serif],
             },
             fontSize: {
                 'xxxs': '0.5rem', // 8px
                 'xxs': '0.625rem', // 10px
               },
             colors: {
-                "orange": "#FF5A00",
-                "beige": "#EEECEA",
-                "black-700": "#333",
-                "swamp": "#627867",
-                "dark-bg": "#202020",
-                "footer-bg": "#111"
+                "black-primary": "#121618",
+                "gray-primary": "#F5F5F5",
             },
             maxWidth: {
                 "screen-3xl": "1440px",
