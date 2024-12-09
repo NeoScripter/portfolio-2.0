@@ -1,7 +1,7 @@
 <div>
-    <div class="text-xl font-thin font-main">Font Thin</div>
-    <div class="text-xl font-light font-main">Font Light</div>
-    <div class="text-xl font-normal font-main">Font Normal</div>
-    <div class="text-xl font-bold font-main">Font Bold</div>
+    <div class="font-serif text-xl font-thin">Font Thin</div>
+    <div class="font-serif text-xl font-light">Font Light</div>
+    <div class="font-serif text-xl font-normal">Font Normal</div>
+    <div class="font-serif text-xl font-bold">Font Bold</div>
 
 </div>

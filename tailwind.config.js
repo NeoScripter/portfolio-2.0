@@ -13,8 +13,8 @@ export default {
         extend: {
             fontFamily: {
                 sans: ["Figtree", ...defaultTheme.fontFamily.sans],
-                main: ['Helvetica Neue', 'Helvetica', 'sans-serif', ...defaultTheme.fontFamily.sans],
-                serif: ['GaramondMTW04', 'serif', ...defaultTheme.fontFamily.serif],
+                main: ['Helvetica Neue', ...defaultTheme.fontFamily.sans],
+                serif: ['GaramondMTW04', ...defaultTheme.fontFamily.serif],
             },
             fontSize: {
                 'xxxs': '0.5rem', // 8px

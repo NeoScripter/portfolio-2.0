@@ -3,191 +3,212 @@
 @tailwind utilities;
 
 @font-face {
-    font-family: 'Helvetica Neue';
-    src: url('HelveticaNeue-Black.woff2') format('woff2'),
-        url('HelveticaNeue-Black.woff') format('woff');
+    font-family: "Helvetica Neue";
+    src: url("/resources/fonts/HelveticaNeue-Black.woff2") format("woff2"),
+        url("/resources/fonts/HelveticaNeue-Black.woff") format("woff");
     font-weight: 900;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Helvetica Neue';
-    src: url('HelveticaNeue-Bold.woff2') format('woff2'),
-        url('HelveticaNeue-Bold.woff') format('woff');
+    font-family: "Helvetica Neue";
+    src: url("/resources/fonts/HelveticaNeue-Bold.woff2") format("woff2"),
+        url("/resources/fonts/HelveticaNeue-Bold.woff") format("woff");
     font-weight: bold;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Helvetica Neue';
-    src: url('HelveticaNeue-BlackItalic.woff2') format('woff2'),
-        url('HelveticaNeue-BlackItalic.woff') format('woff');
+    font-family: "Helvetica Neue";
+    src: url("/resources/fonts/HelveticaNeue-BlackItalic.woff2") format("woff2"),
+        url("/resources/fonts/HelveticaNeue-BlackItalic.woff") format("woff");
     font-weight: 900;
     font-style: italic;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Helvetica Neue';
-    src: url('HelveticaNeue-BoldItalic.woff2') format('woff2'),
-        url('HelveticaNeue-BoldItalic.woff') format('woff');
+    font-family: "Helvetica Neue";
+    src: url("/resources/fonts/HelveticaNeue-BoldItalic.woff2") format("woff2"),
+        url("/resources/fonts/HelveticaNeue-BoldItalic.woff") format("woff");
     font-weight: bold;
     font-style: italic;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Helvetica Neue';
-    src: url('HelveticaNeue-Italic.woff2') format('woff2'),
-        url('HelveticaNeue-Italic.woff') format('woff');
+    font-family: "Helvetica Neue";
+    src: url("/resources/fonts/HelveticaNeue-Italic.woff2") format("woff2"),
+        url("/resources/fonts/HelveticaNeue-Italic.woff") format("woff");
     font-weight: normal;
     font-style: italic;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Helvetica Neue';
-    src: url('HelveticaNeue-Heavy.woff2') format('woff2'),
-        url('HelveticaNeue-Heavy.woff') format('woff');
+    font-family: "Helvetica Neue";
+    src: url("/resources/fonts/HelveticaNeue-Heavy.woff2") format("woff2"),
+        url("/resources/fonts/HelveticaNeue-Heavy.woff") format("woff");
     font-weight: 900;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Helvetica Neue';
-    src: url('HelveticaNeue-HeavyItalic.woff2') format('woff2'),
-        url('HelveticaNeue-HeavyItalic.woff') format('woff');
+    font-family: "Helvetica Neue";
+    src: url("/resources/fonts/HelveticaNeue-HeavyItalic.woff2") format("woff2"),
+        url("/resources/fonts/HelveticaNeue-HeavyItalic.woff") format("woff");
     font-weight: 900;
     font-style: italic;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Helvetica Neue';
-    src: url('HelveticaNeue-Light.woff2') format('woff2'),
-        url('HelveticaNeue-Light.woff') format('woff');
+    font-family: "Helvetica Neue";
+    src: url("/resources/fonts/HelveticaNeue-Light.woff2") format("woff2"),
+        url("/resources/fonts/HelveticaNeue-Light.woff") format("woff");
     font-weight: 300;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Helvetica Neue';
-    src: url('HelveticaNeue-LightItalic.woff2') format('woff2'),
-        url('HelveticaNeue-LightItalic.woff') format('woff');
+    font-family: "Helvetica Neue";
+    src: url("/resources/fonts/HelveticaNeue-LightItalic.woff2") format("woff2"),
+        url("/resources/fonts/HelveticaNeue-LightItalic.woff") format("woff");
     font-weight: 300;
     font-style: italic;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Helvetica Neue';
-    src: url('HelveticaNeue-Medium.woff2') format('woff2'),
-        url('HelveticaNeue-Medium.woff') format('woff');
+    font-family: "Helvetica Neue";
+    src: url("/resources/fonts/HelveticaNeue-Medium.woff2") format("woff2"),
+        url("/resources/fonts/HelveticaNeue-Medium.woff") format("woff");
     font-weight: 500;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Helvetica Neue';
-    src: url('HelveticaNeue-MediumItalic.woff2') format('woff2'),
-        url('HelveticaNeue-MediumItalic.woff') format('woff');
+    font-family: "Helvetica Neue";
+    src: url("/resources/fonts/HelveticaNeue-MediumItalic.woff2")
+            format("woff2"),
+        url("/resources/fonts/HelveticaNeue-MediumItalic.woff") format("woff");
     font-weight: 500;
     font-style: italic;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Helvetica Neue';
-    src: url('HelveticaNeue-Thin.woff2') format('woff2'),
-        url('HelveticaNeue-Thin.woff') format('woff');
+    font-family: "Helvetica Neue";
+    src: url("/resources/fonts/HelveticaNeue-Thin.woff2") format("woff2"),
+        url("/resources/fonts/HelveticaNeue-Thin.woff") format("woff");
     font-weight: 100;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Helvetica Neue';
-    src: url('HelveticaNeue-ThinItalic.woff2') format('woff2'),
-        url('HelveticaNeue-ThinItalic.woff') format('woff');
+    font-family: "Helvetica Neue";
+    src: url("/resources/fonts/HelveticaNeue-ThinItalic.woff2") format("woff2"),
+        url("/resources/fonts/HelveticaNeue-ThinItalic.woff") format("woff");
     font-weight: 100;
     font-style: italic;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Helvetica Neue';
-    src: url('HelveticaNeue-Roman.woff2') format('woff2'),
-        url('HelveticaNeue-Roman.woff') format('woff');
+    font-family: "Helvetica Neue";
+    src: url("/resources/fonts/HelveticaNeue-Roman.woff2") format("woff2"),
+        url("/resources/fonts/HelveticaNeue-Roman.woff") format("woff");
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Helvetica Neue';
-    src: url('HelveticaNeue-UltraLight.woff2') format('woff2'),
-        url('HelveticaNeue-UltraLight.woff') format('woff');
+    font-family: "Helvetica Neue";
+    src: url("/resources/fonts/HelveticaNeue-UltraLight.woff2") format("woff2"),
+        url("/resources/fonts/HelveticaNeue-UltraLight.woff") format("woff");
     font-weight: 200;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Helvetica Neue';
-    src: url('HelveticaNeue-UltraLightItalic.woff2') format('woff2'),
-        url('HelveticaNeue-UltraLightItalic.woff') format('woff');
+    font-family: "Helvetica Neue";
+    src: url("/resources/fonts/HelveticaNeue-UltraLightItalic.woff2")
+            format("woff2"),
+        url("/resources/fonts/HelveticaNeue-UltraLightItalic.woff")
+            format("woff");
     font-weight: 200;
     font-style: italic;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'GaramondMTW04';
-    src: url('GaramondMTW04-Italic.woff2') format('woff2'),
-        url('GaramondMTW04-Italic.woff') format('woff');
+    font-family: "GaramondMTW04";
+    src: url("/resources/fonts/GaramondMTW04-Italic.woff2") format("woff2"),
+        url("/resources/fonts/GaramondMTW04-Italic.woff") format("woff");
     font-weight: normal;
     font-style: italic;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'GaramondMTW04';
-    src: url('GaramondMTW04-Regular.woff2') format('woff2'),
-        url('GaramondMTW04-Regular.woff') format('woff');
+    font-family: "GaramondMTW04";
+    src: url("/resources/fonts/GaramondMTW04-Regular.woff2") format("woff2"),
+        url("/resources/fonts/GaramondMTW04-Regular.woff") format("woff");
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'LightItalic';
-    src: url('HelveticaNeue-LightItalic.woff2') format('woff2'),
-        url('HelveticaNeue-LightItalic.woff') format('woff');
+    font-family: "LightItalic";
+    src: url("/resources/fonts/HelveticaNeue-LightItalic.woff2") format("woff2"),
+        url("/resources/fonts/HelveticaNeue-LightItalic.woff") format("woff");
     font-weight: 300;
     font-style: italic;
     font-display: swap;
 }
 
-
-.thin-text {
-    font-weight: 300 !important;
-    font-family: 'LightItalic' !important;
+.select-field {
+    background: black;
+    outline: none;
 }
 
-.select-field::after {
+.select-field option:focus {
+    outline: none !important;
+    border: none !important;
+}
+
+.select-field:focus {
+    outline: none !important;
+    border: none !important;
+    box-shadow: none;
+}
+/* for IE10 */
+.select-field::-ms-expand {
+    display: none;
+}
+
+.lang-toggle:has(.select-field:focus-visible)::after {
+    color: #9ca3af;
+}
+
+.lang-toggle::after {
     border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 5px solid;
-  content: "";
-  height: 0;
-  position: absolute;
-  right: 4px;
-  top: 6px;
-  width: 0;
-  z-index: -1;
+    border-right: 5px solid transparent;
+    border-top: 5px solid;
+    content: "";
+    height: 0;
+    position: absolute;
+    right: 4px;
+    top: 6px;
+    width: 0;
+    z-index: 2;
 }

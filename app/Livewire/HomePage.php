@@ -6,7 +6,6 @@ use Livewire\Component;
 
 class HomePage extends Component
 {
-    public $title = 'Airplane';
 
     public function render()
     {
