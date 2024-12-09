@@ -12,4 +12,25 @@
         </div>
     </section>
 
+    <section class="px-10 py-6">
+
+        <div class="grid max-w-6xl gap-4 mx-auto mb-6 tracking-widest xs:gap-6 grid-cols-auto-fit-120 sm:gap-8">
+
+            @php
+                $content = ['React', 'PHP', 'Rust', 'SQL', 'Laravel', 'Typescript', 'WordPress'];
+                $images = ['react', 'php', 'rust', 'sql', 'laravel', 'ts', 'wp'];
+                $inverted = [true, false, false, false, false, false, true];
+                $shifted_top = [false, true, true, true, true, true, true];
+                $shifted_right = [false, false, false, true, false, false, false];
+            @endphp
+
+            @for ($i = 0; $i < count($content); $i++)
+                <x-user.stack-logo :inverted="$inverted[$i]" :large="$i === 0 ? true : false" :image="asset('images/logos/' . $images[$i]. '.webp')" :shifted_top="$shifted_top[$i]" :shifted_right="$shifted_right[$i]" :alt="$content[$i] . 'logo'" :gap="$i === 0 ? false : true">
+                    {{ $content[$i] }}
+                </x-user.stack-logo>
+            @endfor
+
+
+        </div>
+    </section>
 </div>
