@@ -181,9 +181,15 @@
     outline: none;
 }
 
-.select-field option:focus {
+.select-field-mobile {
+    background: white;
+    outline: none;
+}
+
+.select-field-mobile:focus {
     outline: none !important;
     border: none !important;
+    box-shadow: none;
 }
 
 .select-field:focus {
@@ -191,7 +197,7 @@
     border: none !important;
     box-shadow: none;
 }
-/* for IE10 */
+
 .select-field::-ms-expand {
     display: none;
 }
@@ -211,4 +217,8 @@
     top: 6px;
     width: 0;
     z-index: 2;
+}
+
+[x-cloak] {
+    display: none !important;
 }

@@ -36,7 +36,7 @@ export default {
                 100: "25rem",
             },
             width: {
-                ...generateWidths(60, 200),
+                ...generateWidths(40, 200),
             },
             height: {
                 ...generateHeights(20, 200),
