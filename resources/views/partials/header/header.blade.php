@@ -1,5 +1,5 @@
 <header x-data="{ showPopup: false }"
-    class="sticky top-0 flex items-center justify-between gap-4 px-6 py-2 bg-white border-b border-gray-300 font-main sm:justify-start sm:px-8 sm:bg-black sm:text-white">
+    class="sticky top-0 z-10 flex items-center justify-between gap-4 px-6 py-2 bg-white border-b border-gray-300 font-main sm:justify-start sm:px-8 sm:bg-black sm:text-white">
     <img src="{{ asset('images/partials/logo.webp') }}" alt="Byte Engine logo"
         class="w-12 h-12 mt-1 sm:invert sm:w-16 sm:h-16">
 

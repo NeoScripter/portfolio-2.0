@@ -13,7 +13,7 @@
 </head>
 
 <body class="font-serif antialiased">
-    <div class="max-w-screen-xl min-h-screen mx-auto overflow-x-hidden">
+    <div class="max-w-screen-xl min-h-screen mx-auto overflow-x-clip">
 
         @include('partials.header.header')
 
