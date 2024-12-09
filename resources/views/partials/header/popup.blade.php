@@ -19,7 +19,7 @@
 
     <div>
         <img src="{{ asset('images/partials/logo.webp') }}" alt="Byte Engine logo" class="w-20 h-20 mb-4">
-        <div class="mb-2 text-lg italic font-semibold">Web Development</div>
+        <div class="mb-2 font-serif text-lg font-normal tracking-[5px] uppercase">Web Development</div>
         <div class="text-2xl uppercase tracking-[2px]">Byte Engine</div>
     </div>
 
