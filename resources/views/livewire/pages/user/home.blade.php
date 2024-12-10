@@ -1,4 +1,5 @@
-<div>
+<div class="pb-12 space-y-12 md:space-y-16 md:pb-16">
+
     <section>
 
         <div class="relative flex items-end gap-4 px-4 pt-12 md:px-10 sm:items-center h-60 xs:h-80 sm:h-120 md:h-160">
@@ -32,8 +33,7 @@
         </div>
 
         <div class="px-10 pt-5 sm:hidden">
-            <p
-                class="mb-3 text-sm font-light tracking-wider text-center uppercase font-main text-balance">
+            <p class="mb-3 text-sm font-light tracking-wider text-center uppercase font-main text-balance">
                 Hi there! I'm Ilya, a passionate web developer who creates high-quality, fast, and scalable apps
                 with appealing UI.</p>
             <div class="pt-3 space-y-3 text-xs uppercase border-t border-gray-300 font-main">
@@ -94,5 +94,42 @@
                     best.</p>
             </div>
         </div>
+    </section>
+
+    <section>
+
+        <h2
+            class="mb-5 text-lg font-light tracking-widest text-center uppercase md:mb-20 font-main xs:text-2xl sm:text-3xl md:text-4xl">
+            Featured portfolio pieces</h2>
+
+        <div class="overflow-x-hidden">
+            <div
+                class="grid grid-flow-row gap-4 py-10">
+                <div
+                    x-data="{ expanded: false }"
+                @click="expanded = ! expanded"
+                    class="flex flex-col items-center gap-4 pb-6 shadow-xl w-100 md:pb-10">
+                    <div>
+                        <img src="{{ asset('images/home/port1.webp') }}" alt=""
+                            class="object-cover object-center w-full h-full">
+                    </div>
+
+                    <h3 class="mt-2 font-bold tracking-widest uppercase font-main">Lorem ipsum dolores</h3>
+
+                    <div
+                        x-show="expanded"
+                        x-collapse
+                        class="px-6 md:px-10">
+                        <span class="block w-10 h-1 mx-auto mb-6 border-t-2 border-black"></span>
+                        <p class="mb-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias dolor autem
+                            hic sapiente iure quaerat. Blanditiis, aspernatur. Molestiae, rerum quas! Voluptas quis
+                            officia dolorem nostrum itaque veniam hic accusantium magnam.</p>
+                        <button
+                            class="px-10 py-3 w-full text-xxs tracking-[4px] font-bold font-main text-white uppercase bg-black transition-colors duration-300 border border-black hover:bg-white hover:text-black">Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </section>
 </div>

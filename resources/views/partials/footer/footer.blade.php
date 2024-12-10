@@ -1,8 +1,8 @@
 <footer class="px-10 bg-black xs:px-20 py-14">
     <img src="{{ asset('images/partials/logo.webp') }}" alt="Byte Engine logo"
-    class="mx-auto mb-8 sm:mb-10 md:mb-14 w-28 h-28 invert">
+    class="mx-auto mb-8 sm:mb-10 md:mb-16 w-28 h-28 invert">
 
-    <nav class="mb-8 sm:mb-10">
+    <nav class="mb-8 sm:mb-16">
         <ul class="grid gap-6 text-white xs:gap-10 sm:grid-cols-4 sm:gap-6">
             <li>
                 <a href="" class="block text-lg italic transition-colors duration-300 xs:text-xl md:text-2xl hover:text-gray-400">Home
