@@ -1,5 +1,5 @@
 <header x-data="{ showPopup: false }"
-    class="sticky top-0 z-10 flex items-center justify-between gap-4 px-6 py-2 bg-white border-b border-gray-300 font-main sm:justify-start sm:px-8 sm:bg-black sm:text-white">
+    class="sticky top-0 z-10 flex items-center justify-between gap-4 px-6 py-2 bg-white border-b border-gray-300 font-main sm:justify-start sm:px-8 sm:bg-black-primary sm:text-white">
     <img src="{{ asset('images/partials/logo.webp') }}" alt="Byte Engine logo"
         class="w-12 h-12 mt-1 sm:invert sm:w-16 sm:h-16">
 
@@ -22,7 +22,7 @@
             <div
                 class="relative pr-1 ml-auto lang-toggle w-max group hover:after:text-gray-400 after:transition-colors ">
                 <select name="" id=""
-                    class="p-0 mb-2 bg-black font-main select-field appearance-none tracking-[2px] text-xs font-regular border-none w-20 block cursor-pointer transition-colors group-hover:text-gray-400 outline-none shadow-none focus-visible:text-gray-400">
+                    class="p-0 mb-2 bg-black-primary font-main select-field appearance-none tracking-[2px] text-xs font-regular border-none w-20 block cursor-pointer transition-colors group-hover:text-gray-400 outline-none shadow-none focus-visible:text-gray-400">
                     <option class="tracking-[2px]" value="">ENGLISH</option>
                     <option class="tracking-[2px]" value="">FRENCH</option>
                 </select>

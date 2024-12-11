@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="overflow-x-clip">
 
 <head>
     <meta charset="utf-8">
@@ -13,8 +13,8 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="font-serif antialiased">
-    <div class="max-w-screen-xl min-h-screen mx-auto overflow-x-clip">
+<body class="font-serif antialiased overflow-x-clip">
+    <div class="max-w-screen-xl min-h-screen mx-auto">
 
         @include('partials.header.header')
 

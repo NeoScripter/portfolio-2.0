@@ -1,4 +1,4 @@
-<footer class="px-10 bg-black xs:px-20 py-14">
+<footer class="px-10 bg-black-primary xs:px-20 py-14">
     <img src="{{ asset('images/partials/logo.webp') }}" alt="Byte Engine logo"
     class="mx-auto mb-8 sm:mb-10 md:mb-16 w-28 h-28 invert">
 
@@ -49,7 +49,7 @@
         <div
         class="relative pr-1 text-white lang-toggle w-max group hover:after:text-gray-400 after:transition-colors ">
         <select name="" id=""
-            class="p-0 bg-black font-main select-field appearance-none tracking-[2px] text-xs font-regular border-none w-20 block cursor-pointer transition-colors group-hover:text-gray-400 outline-none shadow-none focus-visible:text-gray-400">
+            class="p-0 bg-black-primary font-main select-field appearance-none tracking-[2px] text-xs font-regular border-none w-20 block cursor-pointer transition-colors group-hover:text-gray-400 outline-none shadow-none focus-visible:text-gray-400">
             <option class="tracking-[2px]" value="">ENGLISH</option>
             <option class="tracking-[2px]" value="">FRENCH</option>
         </select>
