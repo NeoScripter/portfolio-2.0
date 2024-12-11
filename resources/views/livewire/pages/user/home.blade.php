@@ -81,7 +81,7 @@
                 class="mb-4 text-lg font-thin tracking-widest uppercase md:mb-8 md:text-center md:w-2/3 md:mx-auto sm:mb-6 xs:text-2xl md:text-3xl lg:text-4xl text-balance font-main">
                 crafting unique and bespoke websites with excellent quality</h2>
 
-            <div class="mx-auto space-y-3 tracking-wide md:text-center sm:text-lg text-balance md:w-3/4">
+            <div class="mx-auto space-y-3 tracking-wide md:text-center sm:text-lg md:text-xl text-balance md:w-3/5">
                 <p>Welcome to my Web Development Studio – where creativity meets functionality!</p>
 
                 <p>I’m Ilya, a passionate web developer with a proven track record of crafting stunning, high-performing
@@ -170,6 +170,7 @@
         })(),
         applyTransition: true,
         multiplier: 0,
+        displayedSlide: 1,
         isAnimating: false,
         shiftSlide(direction) {
             if (this.isAnimating) return;
@@ -178,6 +179,7 @@
 
             if (direction === 'next') {
                 this.currentSlide = (this.currentSlide + 1) % this.slides.length;
+                this.displayedSlide = this.displayedSlide < 7 ? this.displayedSlide + 1 : 1;
                 this.multiplier = 1;
                 setTimeout(() => {
                     this.applyTransition = false;
@@ -189,6 +191,7 @@
                 }, 500);
             } else if (direction === 'prev') {
                 this.currentSlide = (this.currentSlide - 1 + this.slides.length) % this.slides.length;
+                this.displayedSlide = this.displayedSlide > 1 ? this.displayedSlide - 1 : 7;
                 this.multiplier = -1;
                 setTimeout(() => {
                     this.applyTransition = false;
@@ -226,7 +229,7 @@
                             <span class="block w-10 h-1 mx-auto mb-6 border-t-2 border-black"></span>
                             <p class="block mb-6" x-text="slide.desc"></p>
                             <a :href="slide.link"
-                                class="px-10 mt-auto block py-3 w-full cursor-pointer text-xxs text-center tracking-[4px] font-bold mb-4 font-main text-white uppercase bg-black transition-colors duration-300 border border-black hover:bg-white hover:text-black">
+                                class="px-10 mt-auto block py-3 w-full cursor-pointer text-xxs text-center tracking-[4px] font-bold font-main text-white uppercase bg-black transition-colors duration-300 border border-black hover:bg-white hover:text-black">
                                 Details
                             </a>
                         </div>
@@ -237,10 +240,14 @@
             </div>
         </div>
 
-        <div class="mx-auto w-max font-main">
-            <button @click="shiftSlide('prev')">&lt;</button>
-            <span x-text="(currentSlide + slides.length - 4) % 7 + 1"></span> / <span x-text="slides.length - 2"></span>
-            <button @click="shiftSlide('next')">&gt;</button>
+        <div class="flex items-center gap-6 mx-auto text-sm font-bold w-max font-main">
+            <button @click="shiftSlide('prev')" class="w-5 h-5">
+                <img src="{{ asset('images/partials/carrette-left.svg') }}" class="w-full h-full" alt="Arrow left" aria-hidden>
+            </button>
+            <div><span x-text="displayedSlide"></span> / <span x-text="slides.length - 2"></span></div>
+            <button @click="shiftSlide('next')" class="w-5 h-5">
+                <img src="{{ asset('images/partials/carrette-right.svg') }}" class="w-full h-full" alt="Arrow right" aria-hidden>
+            </button>
         </div>
 
     </section>
