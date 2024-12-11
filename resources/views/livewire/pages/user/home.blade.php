@@ -78,7 +78,7 @@
 
         <div class="max-w-4xl px-10 py-8 mx-auto md:max-w-screen-3xl sm:py-12 md:py-16 sm:px-16 bg-gray-primary">
             <h2
-                class="mb-4 text-lg font-thin tracking-widest uppercase md:mb-8 md:text-center md:w-2/3 md:mx-auto sm:mb-6 sm:text-3xl md:text-4xl xs:text-2xl text-balance font-main">
+                class="mb-4 text-lg font-thin tracking-widest uppercase md:mb-8 md:text-center md:w-2/3 md:mx-auto sm:mb-6 xs:text-2xl md:text-3xl lg:text-4xl text-balance font-main">
                 crafting unique and bespoke websites with excellent quality</h2>
 
             <div class="mx-auto space-y-3 tracking-wide md:text-center sm:text-lg text-balance md:w-3/4">
@@ -165,7 +165,9 @@
                 link: null
             }
         ],
-        currentSlide: 4,
+        currentSlide: (() => {
+            return Math.ceil((screen.width / 2) / 280) + (screen.width < 1740 ? 1 : 0);
+        })(),
         applyTransition: true,
         multiplier: 0,
         isAnimating: false,
@@ -201,10 +203,10 @@
     }">
 
         <h2
-            class="mb-5 text-lg font-thin tracking-widest text-center uppercase md:pt-14 md:mb-10 font-main xs:text-2xl sm:text-3xl md:text-4xl">
+            class="mb-5 text-lg font-thin tracking-widest text-center uppercase md:pt-14 md:mb-10 font-main xs:text-2xl md:text-3xl lg:text-4xl">
             Featured portfolio pieces</h2>
 
-        <div class="relative h-160">
+        <div class="relative w-[1640px] h-160">
             <div :class="applyTransition ? 'transition-all duration-500' : ''"
                 class="absolute w-[136%] grid items-center justify-start grid-flow-col gap-8 py-10 h-full"
                 :style="`left: calc(-37% - ${multiplier * 19}%)`">
@@ -212,14 +214,15 @@
                 <template x-for="slide in slides" :key="slide.index">
                     <div x-data="{ expanded: currentSlide === slide.index }" x-init="$watch('currentSlide', value => expanded = value === slide.index)"
                         class="flex flex-col items-center gap-4 pb-6 shadow-xl w-70" x-cloak
-                        :class="expanded ? 'h-full w-90' : 'h-4/5'">
+                        :class="expanded ? 'h-full xs:w-90' : 'h-4/5'">
                         <!-- Slide Content -->
                         <div x-show="expanded" x-collapse.min.400px.duration.500ms>
                             <img :src="slide.image" :alt="slide.title"
                                 class="object-cover object-center w-full h-full">
                         </div>
-                        <h3 class="mt-2 font-medium tracking-widest uppercase font-main" x-text="slide.title"></h3>
-                        <div x-show="expanded" x-collapse.duration.500ms class="flex flex-col px-6 md:px-10">
+                        <h3 class="mt-2 text-sm font-medium tracking-widest uppercase md:text-base font-main" x-text="slide.title"></h3>
+                        <div x-show="expanded" x-collapse.duration.500ms
+                            class="flex flex-col px-6 md:px-10">
                             <span class="block w-10 h-1 mx-auto mb-6 border-t-2 border-black"></span>
                             <p class="block mb-6" x-text="slide.desc"></p>
                             <a :href="slide.link"
@@ -236,7 +239,7 @@
 
         <div class="mx-auto w-max font-main">
             <button @click="shiftSlide('prev')">&lt;</button>
-            <span x-text="(currentSlide + 7 - 4) % 7 + 1"></span> / <span x-text="slides.length - 2"></span>
+            <span x-text="(currentSlide + slides.length - 4) % 7 + 1"></span> / <span x-text="slides.length - 2"></span>
             <button @click="shiftSlide('next')">&gt;</button>
         </div>
 
