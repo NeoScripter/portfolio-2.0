@@ -12,7 +12,12 @@ class Project extends Model
     protected $guarded = ['id'];
 
     protected $casts = [
-        'text_content' => 'array',
+        'text_content_en' => 'array',
+        'image_content_alt_en' => 'array',
+        'text_content_fr' => 'array',
+        'image_content_alt_fr' => 'array',
+        'text_content_ru' => 'array',
+        'image_content_alt_ru' => 'array',
         'image_content' => 'array',
     ];
 }

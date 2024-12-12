@@ -48,7 +48,7 @@ export default {
                 "auto-fit-300": "repeat(auto-fit, minmax(350px, 1fr))",
                 "auto-fit-240": "repeat(auto-fit, minmax(240px, 1fr))",
                 "auto-fit-120": "repeat(auto-fit, minmax(120px, 1fr))",
-                "auto-fill-200": "repeat(auto-fill, minmax(240px, 1fr))",
+                "auto-fill-200": "repeat(auto-fill, minmax(200px, 1fr))",
             },
             gridTemplateRows: {
                 "open": "1.2fr 1fr",

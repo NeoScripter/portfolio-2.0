@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Project>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Service>
  */
-class ProjectFactory extends Factory
+class ServiceFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,9 +17,8 @@ class ProjectFactory extends Factory
     public function definition(): array
     {
         return [
-            'image' => $this->faker->url(),
-            'featured_image' => collect(glob(storage_path('app/public/projects/*.*')))
-            ->map(fn($path) => 'projects/' . basename($path))
+            'image' => collect(glob(storage_path('app/public/services/*.*')))
+            ->map(fn($path) => 'services/' . basename($path))
             ->random(),
             'title_en' => $this->faker->words(3, true),
             'title_fr' => $this->faker->words(3, true),
@@ -27,11 +26,10 @@ class ProjectFactory extends Factory
             'description_en' => $this->faker->paragraph(10),
             'description_fr' => $this->faker->paragraph(10),
             'description_ru' => $this->faker->paragraph(10),
-            'website_link' => $this->faker->url,
-            'text_content_en' => json_encode($this->faker->paragraphs(5)),
-            'text_content_fr' => json_encode($this->faker->paragraphs(5)),
-            'text_content_ru' => json_encode($this->faker->paragraphs(5)),
-
+            'deadline_en' => $this->faker->randomElement(['From 2 to 4 month', 'Within 1 month']),
+            'deadline_fr' => $this->faker->randomElement(['Entre 2 et 4 mois', 'Jusqu\'a 1 mois']),
+            'deadline_ru' => $this->faker->randomElement(['От 2 до 4 месяцев', 'До 1 месяца']),
+            'min_price' => $this->faker->numberBetween(100, 400),
         ];
     }
 }

@@ -27,9 +27,9 @@
                     <option class="tracking-[2px]" value="">FRENCH</option>
                 </select>
             </div>
-            <button
-                class="px-10 py-3 text-xxs tracking-[4px] font-bold text-black bg-white transition-colors duration-300 border border-white hover:bg-black-primary hover:text-white">HIRE
-                ME</button>
+            <x-user.button :is_black="false">
+                HIRE ME
+            </x-user.button>
         </div>
     </div>
 
