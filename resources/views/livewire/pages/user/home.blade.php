@@ -100,71 +100,9 @@
         </div>
     </section>
 
+    @isset($projects)
     <section x-data="{
-        slides: [{
-                index: 0,
-                image: '{{ asset('images/home/port3.bmp') }}',
-                title: 'Lorem ipsum dolores',
-                desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias dolor autem hic sapiente iure quaerat. Blanditiis, aspernatur. Molestiae, rerum quas! Voluptas quis officia dolorem nostrum itaque veniam hic accusantium magnam.',
-                link: null
-            },
-            {
-                index: 1,
-                image: '{{ asset('images/home/port2.webp') }}',
-                title: 'Lorem ipsum dolores',
-                desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-                link: null
-            },
-            {
-                index: 2,
-                image: '{{ asset('images/home/port3.bmp') }}',
-                title: 'Lorem ipsum dolores',
-                desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-                link: null
-            },
-            {
-                index: 3,
-                image: '{{ asset('images/home/port3.bmp') }}',
-                title: 'Lorem ipsum dolores',
-                desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias dolor autem hic sapiente iure quaerat. Blanditiis, aspernatur. Molestiae, rerum quas! Voluptas quis officia dolorem nostrum itaque veniam hic accusantium magnam.',
-                link: null
-            },
-            {
-                index: 4,
-                image: '{{ asset('images/home/port2.webp') }}',
-                title: 'Lorem ipsum dolores',
-                desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-                link: null
-            },
-            {
-                index: 5,
-                image: '{{ asset('images/home/port3.bmp') }}',
-                title: 'Lorem ipsum dolores',
-                desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias dolor autem hic sapiente iure quaerat. Blanditiis, aspernatur. Molestiae, rerum quas! Voluptas quis officia dolorem nostrum itaque veniam hic accusantium magnam.',
-                link: null
-            },
-            {
-                index: 6,
-                image: '{{ asset('images/home/port3.bmp') }}',
-                title: 'Lorem ipsum dolores',
-                desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias dolor autem hic sapiente iure quaerat. Blanditiis, aspernatur. Molestiae, rerum quas! Voluptas quis officia dolorem nostrum itaque veniam hic accusantium magnam.',
-                link: null
-            },
-            {
-                index: 7,
-                image: '{{ asset('images/home/port3.bmp') }}',
-                title: 'Lorem ipsum dolores',
-                desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-                link: null
-            },
-            {
-                index: 8,
-                image: '{{ asset('images/home/port3.bmp') }}',
-                title: 'Lorem ipsum dolores',
-                desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-                link: null
-            }
-        ],
+        slides: {{ json_encode($projects, JSON_HEX_APOS | JSON_HEX_QUOT) }},
         currentSlide: (() => {
             return Math.ceil((screen.width / 2) / 280) + (screen.width < 1740 ? 1 : 0);
         })(),
@@ -216,20 +154,22 @@
 
                 <template x-for="slide in slides" :key="slide.index">
                     <div x-data="{ expanded: currentSlide === slide.index }" x-init="$watch('currentSlide', value => expanded = value === slide.index)"
-                        class="flex flex-col items-center gap-4 pb-6 shadow-xl w-70" x-cloak
-                        :class="expanded ? 'h-full xs:w-90' : 'h-4/5'">
+                        class="grid gap-4 pb-2 transition-all duration-500 shadow-xl w-70" x-cloak
+                        :class="expanded ? 'h-[550px] xs:w-90 grid-rows-open' : 'h-[450px] grid-rows-closed'">
                         <!-- Slide Content -->
-                        <div class="w-full" x-show="!expanded" x-collapse.min.250px.duration.500ms>
-                            <img :src="slide.image" :alt="slide.title"
-                                class="object-cover object-top w-full h-full">
+                        <div class="flex flex-col overflow-hidden">
+                            <div class="overflow-hidden basis-9/10">
+                                <img :src="slide.image" :alt="slide.title"
+                                    class="object-cover object-top w-full h-full">
+                            </div>
+                            <h3 class="block mt-4 text-sm font-medium tracking-widest text-center uppercase basis-1/10 md:text-base font-main" x-text="slide.title"></h3>
                         </div>
-                        <h3 class="mt-2 text-sm font-medium tracking-widest uppercase md:text-base font-main" x-text="slide.title"></h3>
-                        <div x-show="expanded" x-collapse.duration.500ms
-                            class="flex flex-col px-6 md:px-10">
+                        <div
+                            class="flex flex-col items-center px-6 overflow-hidden md:px-10">
                             <span class="block w-10 h-1 mx-auto mb-6 border-t-2 border-black"></span>
                             <p class="block mb-6" x-text="slide.desc"></p>
                             <a :href="slide.link"
-                                class="px-10 mt-auto block py-3 w-full cursor-pointer text-xxs text-center tracking-[4px] font-bold font-main text-white uppercase bg-black transition-colors duration-300 border border-black hover:bg-white hover:text-black">
+                                class="px-10 mt-auto block py-3 mb-4 w-full cursor-pointer text-xxs text-center tracking-[4px] font-bold font-main text-white uppercase bg-black transition-colors duration-300 border border-black hover:bg-white hover:text-black">
                                 Details
                             </a>
                         </div>
@@ -251,4 +191,6 @@
         </div>
 
     </section>
+
+    @endisset
 </div>

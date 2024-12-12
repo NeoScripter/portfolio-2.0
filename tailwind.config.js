@@ -50,6 +50,10 @@ export default {
                 "auto-fit-120": "repeat(auto-fit, minmax(120px, 1fr))",
                 "auto-fill-200": "repeat(auto-fill, minmax(240px, 1fr))",
             },
+            gridTemplateRows: {
+                "open": "1.2fr 1fr",
+                "closed": "1fr 0fr",
+            },
             flexBasis: {
                 "1/6": "16.5%",
                 "1/4": "25%",
