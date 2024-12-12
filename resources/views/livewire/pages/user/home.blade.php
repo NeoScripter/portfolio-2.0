@@ -103,7 +103,7 @@
     <section x-data="{
         slides: [{
                 index: 0,
-                image: '{{ asset('images/home/port1.webp') }}',
+                image: '{{ asset('images/home/port3.bmp') }}',
                 title: 'Lorem ipsum dolores',
                 desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias dolor autem hic sapiente iure quaerat. Blanditiis, aspernatur. Molestiae, rerum quas! Voluptas quis officia dolorem nostrum itaque veniam hic accusantium magnam.',
                 link: null
@@ -117,14 +117,14 @@
             },
             {
                 index: 2,
-                image: '{{ asset('images/home/port1.webp') }}',
+                image: '{{ asset('images/home/port3.bmp') }}',
                 title: 'Lorem ipsum dolores',
                 desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
                 link: null
             },
             {
                 index: 3,
-                image: '{{ asset('images/home/port1.webp') }}',
+                image: '{{ asset('images/home/port3.bmp') }}',
                 title: 'Lorem ipsum dolores',
                 desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias dolor autem hic sapiente iure quaerat. Blanditiis, aspernatur. Molestiae, rerum quas! Voluptas quis officia dolorem nostrum itaque veniam hic accusantium magnam.',
                 link: null
@@ -138,28 +138,28 @@
             },
             {
                 index: 5,
-                image: '{{ asset('images/home/port1.webp') }}',
+                image: '{{ asset('images/home/port3.bmp') }}',
                 title: 'Lorem ipsum dolores',
                 desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias dolor autem hic sapiente iure quaerat. Blanditiis, aspernatur. Molestiae, rerum quas! Voluptas quis officia dolorem nostrum itaque veniam hic accusantium magnam.',
                 link: null
             },
             {
                 index: 6,
-                image: '{{ asset('images/home/port1.webp') }}',
+                image: '{{ asset('images/home/port3.bmp') }}',
                 title: 'Lorem ipsum dolores',
                 desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias dolor autem hic sapiente iure quaerat. Blanditiis, aspernatur. Molestiae, rerum quas! Voluptas quis officia dolorem nostrum itaque veniam hic accusantium magnam.',
                 link: null
             },
             {
                 index: 7,
-                image: '{{ asset('images/home/port1.webp') }}',
+                image: '{{ asset('images/home/port3.bmp') }}',
                 title: 'Lorem ipsum dolores',
                 desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
                 link: null
             },
             {
                 index: 8,
-                image: '{{ asset('images/home/port1.webp') }}',
+                image: '{{ asset('images/home/port3.bmp') }}',
                 title: 'Lorem ipsum dolores',
                 desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
                 link: null
@@ -219,9 +219,9 @@
                         class="flex flex-col items-center gap-4 pb-6 shadow-xl w-70" x-cloak
                         :class="expanded ? 'h-full xs:w-90' : 'h-4/5'">
                         <!-- Slide Content -->
-                        <div x-show="expanded" x-collapse.min.400px.duration.500ms>
+                        <div class="w-full" x-show="!expanded" x-collapse.min.250px.duration.500ms>
                             <img :src="slide.image" :alt="slide.title"
-                                class="object-cover object-center w-full h-full">
+                                class="object-cover object-top w-full h-full">
                         </div>
                         <h3 class="mt-2 text-sm font-medium tracking-widest uppercase md:text-base font-main" x-text="slide.title"></h3>
                         <div x-show="expanded" x-collapse.duration.500ms
