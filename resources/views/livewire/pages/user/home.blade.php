@@ -41,12 +41,14 @@
                 Hi there! I'm Ilya, a passionate web developer who creates high-quality, fast, and scalable apps
                 with appealing UI.</p>
             <div class="pt-3 space-y-3 text-xs uppercase border-t border-gray-300 font-main">
-                <a href="" class="block mx-auto tracking-widest underline transition-colors duration-300 underline-offset-4 w-max hover:text-gray-400">
+                <a href=""
+                    class="block mx-auto tracking-widest underline transition-colors duration-300 underline-offset-4 w-max hover:text-gray-400">
                     +63 950 464 35 91</a>
-                <a href="" class="block mx-auto tracking-widest underline transition-colors duration-300 underline-offset-4 w-max hover:text-gray-400">more
-                    about
-                    me</a>
-                <a href="" class="block mx-auto tracking-widest underline transition-colors duration-300 underline-offset-4 w-max hover:text-gray-400">
+                <a href=""
+                    class="block mx-auto tracking-widest underline transition-colors duration-300 underline-offset-4 w-max hover:text-gray-400">more
+                    about me</a>
+                <a href=""
+                    class="block mx-auto tracking-widest underline transition-colors duration-300 underline-offset-4 w-max hover:text-gray-400">
                     Hire
                     me</a>
             </div>
@@ -106,25 +108,40 @@
 
 
     @isset($services)
-    <section>
-        <h2
-            class="mb-5 text-lg font-thin tracking-widest text-center uppercase md:pt-14 sm:mb-12 md:mb-20 font-main xs:text-2xl md:text-3xl lg:text-4xl">
-            Services and prices</h2>
+        <section>
+            <h2
+                class="mb-5 text-lg font-thin tracking-widest text-center uppercase md:pt-14 sm:mb-12 md:mb-20 font-main xs:text-2xl md:text-3xl lg:text-4xl">
+                Services and prices</h2>
 
-        <div class="grid max-w-sm gap-6 px-10 mx-auto sm:max-w-screen-lg sm:gap-10 sm:grid-cols-2 md:grid-cols-auto-fit-300">
+            <div
+                class="grid max-w-sm gap-6 px-10 mx-auto sm:max-w-screen-lg sm:gap-10 sm:grid-cols-2 md:grid-cols-auto-fit-300">
 
-            @foreach ($services as $service)
-                <x-user.service-card :image="$service->image" :alt="''" :title="$service->title_en" :deadline="$service->deadline_en" :desc="Str::words($service->description_en, 20)" :price="$service->min_price" />
-            @endforeach
+                @foreach ($services as $service)
+                    <x-user.service-card :image="$service->image" :alt="''" :title="$service->title_en" :deadline="$service->deadline_en"
+                        :desc="Str::words($service->description_en, 20)" :price="$service->min_price" />
+                @endforeach
 
+            </div>
 
+            <x-user.link :is_black="true" :url="''" :class="'mt-10 sm:mt-14 md:mt-20'">
+                SEE ALL SERVICES
+            </x-user.link>
+
+        </section>
+    @endisset
+
+    <section class="bg-center bg-cover h-160" style="background-image: url('{{ asset("images/home/quote-12.jpg") }}')">
+
+        <div class="flex flex-col items-center justify-center h-full gap-6 bg-black/70">
+
+            <div class="w-3/4 p-4 text-5xl italic tracking-wider text-white bg-black/20">
+                <div class="w-40 h-40 mx-auto mb-3">
+                    <img src="{{ asset('images/home/hero-bw.webp') }}" alt="" class="object-cover object-top w-full h-full">
+                </div>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic ipsa tenetur impedit pariatur, cupiditate quia ipsam, fugit harum vitae officia asperiores veniam aperiam corporis corrupti aut sed, nam optio tempora.
+
+            </div>
         </div>
 
-        <x-user.link :is_black="true" :url="''" :class="'mt-10 sm:mt-14 md:mt-20'">
-            SEE ALL SERVICES
-        </x-user.link>
-
-
     </section>
-    @endisset
 </div>

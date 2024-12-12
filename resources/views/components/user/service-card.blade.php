@@ -6,7 +6,7 @@
             class="object-cover object-center w-full h-full transition-transform duration-500 hover:scale-110">
     </div>
 
-    <div class="flex flex-col gap-2 p-6 pt-2 tracking-widest basis-1/2">
+    <div class="flex flex-col gap-2 p-6 pt-2 tracking-widest sm:pb-8 basis-1/2">
         <h3 class="mb-3 text-2xl font-medium tracking-normal">{{ $title }}</h3>
         <div class="flex items-center gap-2">
             <img src="{{ asset('images/partials/clock1.avif') }}" alt="" class="w-6 h-6">
