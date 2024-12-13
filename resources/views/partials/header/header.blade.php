@@ -9,11 +9,11 @@
             </div>
             <nav>
                 <ul class="flex items-center gap-6 text-sm font-bold tracking-widest uppercase md:gap-10">
-                    <li><a href="" class="transition-colors duration-300 hover:text-gray-500">Home</a>
+                    <li><a href="/" class="transition-colors duration-300 hover:text-gray-500" wire:navigate.hover>Home</a>
                     </li>
                     <li><a href="" class="transition-colors duration-300 hover:text-gray-500">Portfolio</a></li>
                     <li><a href="" class="transition-colors duration-300 hover:text-gray-500">Services</a></li>
-                    <li><a href="" class="transition-colors duration-300 hover:text-gray-500">About
+                    <li><a href="/about" class="transition-colors duration-300 hover:text-gray-500" wire:navigate.hover>About
                             me</a></li>
                 </ul>
             </nav>

@@ -25,11 +25,11 @@
 
     <nav class="mt-6">
         <ul class="space-y-6 text-sm tracking-widest uppercase">
-            <li><a href="" class="transition-colors duration-300 hover:text-gray-500">Home</a>
+            <li><a href="/" class="transition-colors duration-300 hover:text-gray-500" wire:navigate>Home</a>
             </li>
             <li><a href="" class="transition-colors duration-300 hover:text-gray-500">Portfolio</a></li>
             <li><a href="" class="transition-colors duration-300 hover:text-gray-500">Services</a></li>
-            <li><a href="" class="transition-colors duration-300 hover:text-gray-500">About
+            <li><a href="/about" class="transition-colors duration-300 hover:text-gray-500" wire:navigate>About
                     me</a></li>
         </ul>
     </nav>

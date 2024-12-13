@@ -5,7 +5,7 @@
     <nav class="mb-8 sm:mb-16">
         <ul class="grid gap-6 text-white xs:gap-10 sm:grid-cols-4 sm:gap-6">
             <li>
-                <a href="" class="block text-lg italic transition-colors duration-300 xs:text-xl md:text-2xl hover:text-gray-400">Home
+                <a href="/" wire:navigate.hover class="block text-lg italic transition-colors duration-300 xs:text-xl md:text-2xl hover:text-gray-400">Home
                     <span class="block mt-1 not-italic font-bold tracking-widest uppercase xs:mt-2 xs:text-xs md:mt-4 md:text-sm text-balance text-xxs font-main">Return to the home page</span>
                 </a>
             </li>
@@ -15,7 +15,7 @@
                 </a>
             </li>
             <li>
-                <a href="" class="block text-lg italic transition-colors duration-300 hover:text-gray-400 xs:text-xl md:text-2xl">About me
+                <a href="/about" wire:navigate.hover class="block text-lg italic transition-colors duration-300 hover:text-gray-400 xs:text-xl md:text-2xl">About me
                     <span class="block mt-1 not-italic font-bold tracking-widest uppercase xs:mt-2 xs:text-xs md:mt-4 md:text-sm text-balance text-xxs font-main">Find out more about me</span>
                 </a>
             </li>
