@@ -3,7 +3,7 @@
     <section>
 
         <div
-            class="relative flex items-end gap-4 px-4 pt-12 md:px-10 sm:items-center h-60 xs:h-80 sm:h-120 md:h-160 bg-black/30">
+            class="relative flex items-end gap-4 px-4 pt-12 md:px-10 sm:items-center h-60 xs:h-80 sm:h-120 md:h-160 bg-black/30 after:absolute after:inset-0 after:-z-20 after:bg-black">
             <div class="w-1/2 p-2 text-white md:w-4/5 md:p-4 bg-black/50">
                 <span class="block mb-2 italic tracking-widest xs:text-lg md:text-xl md:mb-3">Byte Engine</span>
                 <h1
@@ -29,10 +29,7 @@
                     </div>
                 </div>
             </div>
-            <div class="absolute inset-0 w-full h-full -z-10">
-                <video id="autoVideo" class="object-cover object-right-top w-full h-full"
-                    src="{{ asset('images/home/video_bg.mp4') }}" autoplay loop controls></video>
-            </div>
+            <livewire:partials.video lazy/>
 
         </div>
 

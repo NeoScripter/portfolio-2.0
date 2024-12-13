@@ -37,6 +37,28 @@
                 this.isAnimating = false;
             }, 500);
         }
+    },
+    touchStartX: 0,
+    touchEndX: 0,
+    startSwipe(event) {
+        this.touchStartX = event.touches[0].clientX;
+    },
+
+    moveSwipe(event) {
+        this.touchEndX = event.touches[0].clientX;
+    },
+
+    endSwipe() {
+        const swipeDistance = this.touchStartX - this.touchEndX;
+
+        if (swipeDistance > 50) {
+            this.shiftSlide('next');
+        } else if (swipeDistance < -50) {
+            this.shiftSlide('prev');
+        }
+
+        this.touchStartX = 0;
+        this.touchEndX = 0;
     }
 }" class="select-none">
 
@@ -47,7 +69,11 @@
     <div class="relative w-[1640px] h-160">
         <div :class="applyTransition ? 'transition-all duration-500' : ''"
             class="absolute w-[136%] grid items-center justify-start grid-flow-col gap-8 py-10 h-full"
-            :style="`left: calc(-37% - ${multiplier * 19}%)`">
+            :style="`left: calc(-37% - ${multiplier * 19}%)`"
+            @touchstart="startSwipe($event)"
+            @touchmove="moveSwipe($event)"
+            @touchend="endSwipe()"
+            >
 
             <template x-for="slide in slides" :key="slide.index">
                 <div x-data="{ expanded: currentSlide === slide.index }" x-init="$watch('currentSlide', value => expanded = value === slide.index)"

@@ -69,7 +69,7 @@ return [
     [
         'review' => 'Thank you. Everything is great.',
         'name' => 'Alexander',
-        'image' => 'review14'
+        'image' => null
     ],
     [
         'review' => 'Everything is excellent! The executor completed the task as required.',
