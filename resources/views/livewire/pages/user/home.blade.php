@@ -4,17 +4,17 @@
 
         <div
             class="relative flex items-end gap-4 px-4 pt-12 md:px-10 sm:items-center h-60 xs:h-80 sm:h-120 md:h-160 bg-black/30">
-            <div class="w-1/2 p-2 text-white md:w-3/5 md:p-4 bg-black/40">
+            <div class="w-1/2 p-2 text-white md:w-4/5 md:p-4 bg-black/50">
                 <span class="block mb-2 italic tracking-widest xs:text-lg md:text-xl md:mb-3">Byte Engine</span>
                 <h1
-                    class="mb-5 text-lg font-light tracking-widest uppercase xs:text-2xl sm:text-3xl md:text-4xl text-balance font-main">
+                    class="mb-5 text-lg font-light tracking-widest uppercase xs:text-2xl sm:text-3xl md:text-5xl text-balance font-main">
                     Elegant and performant websites</h1>
                 <div class="hidden sm:block">
                     <p
-                        class="mb-4 text-xs font-light tracking-wider uppercase md:mb-7 sm:text-lg md:text-xl font-main text-balance">
+                        class="mb-4 text-xs font-light tracking-wider uppercase md:mb-7 sm:text-lg md:text-2xl font-main text-balance">
                         Hi there! I'm Ilya, a passionate web developer who creates high-quality, fast, and scalable apps
                         with appealing UI.</p>
-                    <div class="flex gap-5 text-xs font-bold uppercase font-main md:gap-7">
+                    <div class="flex gap-5 text-sm font-bold uppercase font-main md:gap-7">
                         <a href=""
                             class="block tracking-widest underline transition-colors duration-300 underline-offset-4 w-max hover:text-gray-400">
                             +63 950 464 35 91</a>
@@ -114,11 +114,11 @@
                 Services and prices</h2>
 
             <div
-                class="grid max-w-sm gap-6 px-10 mx-auto sm:max-w-screen-lg sm:gap-10 sm:grid-cols-2 md:grid-cols-auto-fit-300">
+                class="grid max-w-sm gap-6 px-4 mx-auto sm:px-10 sm:max-w-screen-lg sm:gap-10 sm:grid-cols-2 md:grid-cols-auto-fit-300">
 
                 @foreach ($services as $service)
                     <x-user.service-card :image="$service->image" :alt="''" :title="$service->title_en" :deadline="$service->deadline_en"
-                        :desc="Str::words($service->description_en, 20)" :price="$service->min_price" />
+                        :desc="Str::words($service->description_en, 40)" :price="$service->min_price" />
                 @endforeach
 
             </div>
@@ -130,16 +130,23 @@
         </section>
     @endisset
 
-    <section class="bg-center bg-cover h-160" style="background-image: url('{{ asset("images/home/quote-12.jpg") }}')">
+    <section class="bg-center bg-cover h-100 md:h-140 lg:h-160" style="background-image: url('{{ asset("images/home/quote-bg.webp") }}')">
 
-        <div class="flex flex-col items-center justify-center h-full gap-6 bg-black/70">
+        <div class="flex flex-col items-center justify-center h-full gap-6 bg-black/50">
 
-            <div class="w-3/4 p-4 text-5xl italic tracking-wider text-white bg-black/20">
-                <div class="w-40 h-40 mx-auto mb-3">
-                    <img src="{{ asset('images/home/hero-bw.webp') }}" alt="" class="object-cover object-top w-full h-full">
-                </div>
+            <div class="px-6 pt-4 font-medium tracking-wider text-white sm:pt-8 md:pt-12 sm:text-xl xs:w-2/3 md:w-1/2 md:text-3xl lg:text-4xl font-main">
+                <q>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic ipsa tenetur impedit pariatur, cupiditate quia ipsam, fugit harum vitae officia asperiores veniam aperiam corporis corrupti aut sed, nam optio tempora.
-
+                </q>
+                <div class="flex items-center justify-end gap-4 mt-6 md:mt-10">
+                    <div class="w-max">
+                        <p class="text-xs sm:text-sm md:text-base text-end">Author</p>
+                        <p class="text-sm sm:text-base md:text-xl">Ilya Andreev</p>
+                    </div>
+                    <div class="w-16 mr-6 h-18 sm:w-20 sm:h-22 md:w-24 md:h-26">
+                        <img src="{{ asset('images/home/img-quote.jpg') }}" alt="" class="object-cover object-center w-full h-full">
+                    </div>
+                </div>
             </div>
         </div>
 
