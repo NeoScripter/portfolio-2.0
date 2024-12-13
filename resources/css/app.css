@@ -231,6 +231,16 @@
     fill: gray;
 }
 
+.review-card:not(:hover) {
+    animation: zIndexHack 500ms;
+}
+
+@keyframes zIndexHack {
+    0%, 100% {
+        z-index: 10;
+    }
+}
+
 [x-cloak] {
     display: none !important;
 }

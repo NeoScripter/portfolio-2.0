@@ -131,25 +131,47 @@
     @endisset
 
     @isset($reviews)
-        <section class="px-5 pb-2 select-none xs:px-10">
+        <section class="px-40 pb-2 select-none sm:px-20">
             <h2
                 class="mb-5 text-lg font-thin tracking-widest text-center uppercase md:pt-14 sm:mb-12 md:mb-20 font-main xs:text-2xl md:text-3xl lg:text-4xl">
                 Clients' feedback</h2>
+
+            @php
+                $top_map = [
+                    [50, 85],
+                    [10, 50],
+                    [10, 50],
+                    [50, 85]
+                ];
+                $left_map = [
+                    [10, 50],
+                    [50, 90],
+                    [10, 50],
+                    [50, 90]
+                ];
+                $index = 0;
+            @endphp
 
             <div class="relative h-160">
                 @foreach ($reviews as $review)
                     @php
                         $image = $review['image'] === null ? null : $review['image'];
+                        $top = rand($top_map[$index][0], $top_map[$index][1]);
+                        $left = rand($left_map[$index][0], $left_map[$index][1]);
                     @endphp
 
-                    <x-user.review :review="$review['review']" :name="$review['name']" :image="$image" />
+                    <x-user.review :review="$review['review']" :name="$review['name']" :image="$image" :top="$top" :left="$left" />
+
+                    @php
+                        $index = ($index + 1) % 4;
+                    @endphp
                 @endforeach
             </div>
 
         </section>
     @endisset
 
-    <section class="bg-center bg-cover h-100 md:h-140 lg:h-160"
+    <section class="bg-center bg-cover grayscale h-100 md:h-140 lg:h-160"
         style="background-image: url('{{ asset('images/home/quote-bg.webp') }}')">
 
         <div class="flex flex-col items-center justify-center h-full gap-6 bg-black/50">
@@ -168,7 +190,7 @@
                     </div>
                     <div class="w-16 mr-6 h-18 sm:w-20 sm:h-22 md:w-24 md:h-26">
                         <img src="{{ asset('images/home/img-quote.jpg') }}" alt=""
-                            class="object-cover object-center w-full h-full">
+                            class="object-cover object-center w-full h-full rounded-xl">
                     </div>
                 </div>
             </div>
