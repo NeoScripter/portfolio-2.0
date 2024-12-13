@@ -12,6 +12,7 @@ class HomePage extends Component
 {
     public $projects;
     public $services;
+    public $reviews;
 
     public function mount() {
         $this->projects = Project::where('is_featured', true)->latest()->limit(9)->get()->map(function ($project, $index) {
@@ -23,6 +24,8 @@ class HomePage extends Component
                 'link' => $project->website_link,
             ];
         })->toArray();
+
+        $this->reviews = __('reviews');
 
         $this->services = Service::where('is_featured', true)->latest()->limit(3)->get();
     }

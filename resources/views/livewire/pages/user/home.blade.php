@@ -1,4 +1,4 @@
-<div class="pb-12 space-y-12 md:space-y-16 md:pb-16">
+<div class="pb-12 space-y-12 sm:space-y-16 md:space-y-20 md:pb-16">
 
     <section>
 
@@ -130,13 +130,36 @@
         </section>
     @endisset
 
-    <section class="bg-center bg-cover h-100 md:h-140 lg:h-160" style="background-image: url('{{ asset("images/home/quote-bg.webp") }}')">
+    @isset($reviews)
+        <section class="px-5 pb-2 select-none xs:px-10">
+            <h2
+                class="mb-5 text-lg font-thin tracking-widest text-center uppercase md:pt-14 sm:mb-12 md:mb-20 font-main xs:text-2xl md:text-3xl lg:text-4xl">
+                Clients' feedback</h2>
+
+            <div class="relative h-160">
+                @foreach ($reviews as $review)
+                    @php
+                        $image = $review['image'] === null ? null : $review['image'];
+                    @endphp
+
+                    <x-user.review :review="$review['review']" :name="$review['name']" :image="$image" />
+                @endforeach
+            </div>
+
+        </section>
+    @endisset
+
+    <section class="bg-center bg-cover h-100 md:h-140 lg:h-160"
+        style="background-image: url('{{ asset('images/home/quote-bg.webp') }}')">
 
         <div class="flex flex-col items-center justify-center h-full gap-6 bg-black/50">
 
-            <div class="px-6 pt-4 font-medium tracking-wider text-white sm:pt-8 md:pt-12 sm:text-xl xs:w-2/3 md:w-1/2 md:text-3xl lg:text-4xl font-main">
+            <div
+                class="px-6 pt-4 font-medium tracking-wider text-white sm:pt-8 md:pt-12 sm:text-xl xs:w-2/3 md:w-1/2 md:text-3xl lg:text-4xl font-main">
                 <q>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic ipsa tenetur impedit pariatur, cupiditate quia ipsam, fugit harum vitae officia asperiores veniam aperiam corporis corrupti aut sed, nam optio tempora.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic ipsa tenetur impedit pariatur,
+                    cupiditate quia ipsam, fugit harum vitae officia asperiores veniam aperiam corporis corrupti aut
+                    sed, nam optio tempora.
                 </q>
                 <div class="flex items-center justify-end gap-4 mt-6 md:mt-10">
                     <div class="w-max">
@@ -144,7 +167,8 @@
                         <p class="text-sm sm:text-base md:text-xl">Ilya Andreev</p>
                     </div>
                     <div class="w-16 mr-6 h-18 sm:w-20 sm:h-22 md:w-24 md:h-26">
-                        <img src="{{ asset('images/home/img-quote.jpg') }}" alt="" class="object-cover object-center w-full h-full">
+                        <img src="{{ asset('images/home/img-quote.jpg') }}" alt=""
+                            class="object-cover object-center w-full h-full">
                     </div>
                 </div>
             </div>
