@@ -81,12 +81,12 @@
 
         </div>
 
-        <div class="max-w-4xl px-10 py-8 mx-auto md:max-w-screen-3xl sm:py-12 md:py-16 sm:px-16 bg-gray-primary">
+        <div class="max-w-4xl px-10 py-8 mx-auto text-white md:max-w-screen-3xl sm:py-12 md:py-16 sm:px-16 bg-black-primary">
             <h2
-                class="mb-4 text-lg font-thin tracking-widest uppercase md:mb-8 md:text-center md:w-2/3 md:mx-auto sm:mb-6 xs:text-2xl md:text-3xl lg:text-4xl text-balance font-main">
+                class="mb-4 text-lg font-medium tracking-widest uppercase md:mb-8 md:text-center md:w-2/3 md:mx-auto sm:mb-6 xs:text-2xl md:text-3xl lg:text-4xl text-balance font-main">
                 crafting unique and bespoke websites with excellent quality</h2>
 
-            <div class="mx-auto space-y-3 tracking-wide md:text-center sm:text-lg md:text-xl text-balance md:w-3/5">
+            <div class="mx-auto space-y-3 tracking-wide font-main md:text-center sm:text-lg md:text-xl text-balance md:w-3/5">
                 <p>Welcome to my Web Development Studio – where creativity meets functionality!</p>
 
                 <p>I’m Ilya, a passionate web developer with a proven track record of crafting stunning, high-performing
