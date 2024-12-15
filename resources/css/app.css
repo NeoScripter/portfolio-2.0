@@ -175,7 +175,7 @@
     font-style: italic;
     font-display: swap;
 }
-
+/*
 .select-field {
     background: #121618;
     outline: none;
@@ -185,7 +185,7 @@
     background: white;
     outline: none;
 }
-
+ */
 .select-field-mobile:focus {
     outline: none !important;
     border: none !important;

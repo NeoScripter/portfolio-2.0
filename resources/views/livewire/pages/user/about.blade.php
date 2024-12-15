@@ -53,12 +53,5 @@
             Nam, itaque debitis? Eius aliquid odio id officiis, placeat laudantium cupiditate accusantium.</p>
     </section>
 
-    <div class="flex flex-col justify-between items-center gap-3 p-4 text-white sm:flex-row bg-black-primary max-w-screen-sm mx-auto md:max-w-[70rem]">
-        <p class="block">Lorem ipsum dolor sit amet.</p>
-        <a href="block underline mr-auto w-max">+63 950 464 35 91</a>
-        <x-user.button class="px-6 !py-2 !mx-0">
-            Hire me
-        </x-user.button>
-
-    </div>
+    <x-user.call-bar/>
 </div>

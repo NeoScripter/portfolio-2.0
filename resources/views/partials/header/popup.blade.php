@@ -6,11 +6,7 @@
     <div class="flex items-center justify-between gap-2">
 
         <div class="relative pr-1 lang-toggle w-max group hover:after:text-gray-600 after:transition-colors ">
-            <select name="" id=""
-                class="p-0 mb-2 bg-white text-black font-main select-field-mobile appearance-none tracking-[2px] text-xs font-regular border-none w-20 block cursor-pointer transition-colors group-hover:text-gray-600 outline-none shadow-none focus-visible:text-gray-600">
-                <option class="tracking-[2px]" value="">ENGLISH</option>
-                <option class="tracking-[2px]" value="">FRENCH</option>
-            </select>
+            <x-user.select-lang :is_black=false />
         </div>
 
         <button @click="showPopup = false" class="w-10 mb-4 text-3xl text-black">&times</button>
@@ -25,11 +21,11 @@
 
     <nav class="mt-6">
         <ul class="space-y-6 text-sm tracking-widest uppercase">
-            <li><a href="/" class="transition-colors duration-300 hover:text-gray-500" wire:navigate>Home</a>
+            <li><a href="/" class="transition-colors duration-300 hover:text-gray-500" wire:navigate.hover>Home</a>
             </li>
-            <li><a href="" class="transition-colors duration-300 hover:text-gray-500">Portfolio</a></li>
-            <li><a href="" class="transition-colors duration-300 hover:text-gray-500">Services</a></li>
-            <li><a href="/about" class="transition-colors duration-300 hover:text-gray-500" wire:navigate>About
+            <li><a href="" class="transition-colors duration-300 hover:text-gray-500" wire:navigate.hover>Portfolio</a></li>
+            <li><a href="/services" class="transition-colors duration-300 hover:text-gray-500" wire:navigate.hover>Services</a></li>
+            <li><a href="/about" class="transition-colors duration-300 hover:text-gray-500" wire:navigate.hover>About
                     me</a></li>
         </ul>
     </nav>

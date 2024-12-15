@@ -20,7 +20,7 @@
                 </a>
             </li>
             <li>
-                <a href="" class="block text-lg italic transition-colors duration-300 hover:text-gray-400 xs:text-xl md:text-2xl">Services
+                <a href="/services" class="block text-lg italic transition-colors duration-300 hover:text-gray-400 xs:text-xl md:text-2xl" wire:navigate.hover>Services
                     <span class="block mt-1 not-italic font-bold tracking-widest uppercase xs:mt-2 xs:text-xs md:mt-4 md:text-sm text-balance text-xxs font-main">See the full list of services that I provide</span>
                 </a>
             </li>
@@ -48,11 +48,7 @@
 
         <div
         class="relative pr-1 text-white lang-toggle w-max group hover:after:text-gray-400 after:transition-colors ">
-        <select name="" id=""
-            class="p-0 bg-black-primary font-main select-field appearance-none tracking-[2px] text-xs font-regular border-none w-20 block cursor-pointer transition-colors group-hover:text-gray-400 outline-none shadow-none focus-visible:text-gray-400">
-            <option class="tracking-[2px]" value="">ENGLISH</option>
-            <option class="tracking-[2px]" value="">FRENCH</option>
-        </select>
+        <x-user.select-lang />
     </div>
     </div>
 

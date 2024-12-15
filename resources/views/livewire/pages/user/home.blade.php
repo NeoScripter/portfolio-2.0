@@ -29,7 +29,7 @@
                     </div>
                 </div>
             </div>
-            <livewire:partials.video lazy/>
+            <livewire:partials.video lazy />
 
         </div>
 
@@ -55,8 +55,14 @@
 
     <section class="px-5 select-none xs:px-10">
 
+        <h2
+        class="mb-2 text-lg font-thin tracking-widest text-center uppercase sm:mb-5 md:pt-14 font-main xs:text-2xl md:text-3xl lg:text-4xl">
+        Tech stack</h2>
+
+        <p class="w-4/5 mx-auto mb-5 text-center sm:mb-10 md:mb-12 xs:text-lg md:text-xl lg:text-2xl">Techonologies that I use</p>
+
         <div
-            class="grid max-w-6xl gap-4 mx-auto my-12 tracking-widest sm:my-16 md:my-24 xs:gap-6 grid-cols-auto-fit-120 sm:gap-8">
+            class="grid max-w-6xl gap-4 mx-auto mb-12 tracking-widest sm:mb-16 md:mb-24 xs:gap-6 grid-cols-auto-fit-120 sm:gap-8">
 
             @php
                 $content = ['React', 'PHP', 'Rust', 'SQL', 'Laravel', 'Typescript', 'WordPress'];
@@ -107,11 +113,13 @@
     @isset($services)
         <section>
             <h2
-                class="mb-5 text-lg font-thin tracking-widest text-center uppercase md:pt-14 sm:mb-12 md:mb-20 font-main xs:text-2xl md:text-3xl lg:text-4xl">
+                class="mb-2 text-lg font-thin tracking-widest text-center uppercase md:pt-14 sm:mb-5 font-main xs:text-2xl md:text-3xl lg:text-4xl">
                 Services and prices</h2>
 
-            <div
-                class="grid max-w-sm gap-6 px-4 mx-auto sm:px-10 sm:max-w-screen-lg sm:gap-10 sm:grid-cols-2 md:grid-cols-auto-fit-300">
+            <p class="w-4/5 mx-auto mb-5 text-center sm:mb-12 md:mb-20 xs:text-lg md:text-xl lg:text-2xl">Full list of
+                services that I provide for the clients and that they enjoy a lot</p>
+
+            <div class="grid gap-6 px-4 mx-auto sm:px-10 sm:max-w-screen-lg xs:gap-10 grid-cols-auto-fit-240">
 
                 @foreach ($services as $service)
                     <x-user.service-card :image="$service->image" :alt="''" :title="$service->title_en" :deadline="$service->deadline_en"
@@ -120,7 +128,7 @@
 
             </div>
 
-            <x-user.link :is_black="true" :url="''" :class="'mt-10 sm:mt-14 md:mt-20'">
+            <x-user.link :is_black="true" url="/services" :class="'mt-10 sm:mt-14 md:mt-20'">
                 SEE ALL SERVICES
             </x-user.link>
 
@@ -128,47 +136,44 @@
     @endisset
 
     @isset($reviews)
-        <section class="px-40 pb-2 select-none sm:px-20">
+        <section>
             <h2
-                class="mb-5 text-lg font-thin tracking-widest text-center uppercase md:pt-14 sm:mb-12 md:mb-20 font-main xs:text-2xl md:text-3xl lg:text-4xl">
+                class="mb-2 text-lg font-thin tracking-widest text-center uppercase sm:mb-5 md:pt-14 font-main xs:text-2xl md:text-3xl lg:text-4xl">
                 Clients' feedback</h2>
 
-            @php
-                $top_map = [
-                    [50, 85],
-                    [10, 50],
-                    [10, 50],
-                    [50, 85]
-                ];
-                $left_map = [
-                    [10, 50],
-                    [50, 90],
-                    [10, 50],
-                    [50, 90]
-                ];
-                $index = 0;
-            @endphp
+            <p class="w-4/5 mx-auto mb-5 text-center sm:mb-12 md:mb-20 xs:text-lg md:text-xl lg:text-2xl">Full list of
+                services that I provide for the clients and that they enjoy a lot</p>
 
-            <div class="relative h-160">
-                @foreach ($reviews as $review)
-                    @php
-                        $image = $review['image'] === null ? null : $review['image'];
-                        $top = rand($top_map[$index][0], $top_map[$index][1]);
-                        $left = rand($left_map[$index][0], $left_map[$index][1]);
-                    @endphp
+            <div class="px-40 pb-2 select-none sm:px-20">
 
-                    <x-user.review :review="$review['review']" :name="$review['name']" :image="$image" :top="$top" :left="$left" />
+                @php
+                    $top_map = [[50, 85], [10, 50], [10, 50], [50, 85]];
+                    $left_map = [[10, 50], [50, 90], [10, 50], [50, 90]];
+                    $index = 0;
+                @endphp
 
-                    @php
-                        $index = ($index + 1) % 4;
-                    @endphp
-                @endforeach
+                <div class="relative h-160">
+                    @foreach ($reviews as $review)
+                        @php
+                            $image = $review['image'] === null ? null : $review['image'];
+                            $top = rand($top_map[$index][0], $top_map[$index][1]);
+                            $left = rand($left_map[$index][0], $left_map[$index][1]);
+                        @endphp
+
+                        <x-user.review :review="$review['review']" :name="$review['name']" :image="$image" :top="$top"
+                            :left="$left" />
+
+                        @php
+                            $index = ($index + 1) % 4;
+                        @endphp
+                    @endforeach
+                </div>
             </div>
 
         </section>
     @endisset
 
-    <section class="bg-center bg-cover grayscale h-100 md:h-140 lg:h-160"
+    <section class="bg-center bg-cover grayscale-[50%] h-100 md:h-140 lg:h-160"
         style="background-image: url('{{ asset('images/home/quote-bg.webp') }}')">
 
         <div class="flex flex-col items-center justify-center h-full gap-6 bg-black/50">

@@ -27,7 +27,7 @@ class HomePage extends Component
 
         $this->reviews = __('reviews');
 
-        $this->services = Service::where('is_featured', true)->latest()->limit(3)->get();
+        $this->services = Service::where('is_featured', true)->latest()->limit(4)->get();
     }
 
     public function render()

@@ -63,12 +63,14 @@
 }" class="select-none">
 
     <h2
-        class="mb-5 text-lg font-thin tracking-widest text-center uppercase md:pt-14 md:mb-10 font-main xs:text-2xl md:text-3xl lg:text-4xl">
+        class="mb-5 text-lg font-thin tracking-widest text-center uppercase md:pt-14 font-main xs:text-2xl md:text-3xl lg:text-4xl">
         Featured portfolio pieces</h2>
+
+        <p class="w-4/5 mx-auto mb-5 text-center sm:mb-10 xs:text-lg md:text-xl lg:text-2xl">Full list of services that I provide for the clients and that they enjoy a lot</p>
 
     <div class="relative w-[1640px] h-160">
         <div :class="applyTransition ? 'transition-all duration-500' : ''"
-            class="absolute w-[136%] grid items-center justify-start grid-flow-col gap-8 py-10 h-full"
+            class="absolute w-[136%] grid items-center md:-translate-x-16 xl:translate-x-0 justify-start grid-flow-col gap-8 py-10 h-full"
             :style="`left: calc(-37% - ${multiplier * 19}%)`"
             @touchstart="startSwipe($event)"
             @touchmove="moveSwipe($event)"

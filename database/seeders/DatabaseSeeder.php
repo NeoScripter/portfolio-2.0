@@ -26,6 +26,6 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Project::factory()->count(10)->create();
-        Service::factory()->count(3)->create();
+        Service::factory()->count(20)->create();
     }
 }

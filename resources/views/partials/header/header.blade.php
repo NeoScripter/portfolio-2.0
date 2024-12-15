@@ -9,11 +9,15 @@
             </div>
             <nav>
                 <ul class="flex items-center gap-6 text-sm font-bold tracking-widest uppercase md:gap-10">
-                    <li><a href="/" class="transition-colors duration-300 hover:text-gray-500" wire:navigate.hover>Home</a>
+                    <li><a href="/" class="transition-colors duration-300 hover:text-gray-500"
+                            wire:navigate.hover>Home</a>
                     </li>
-                    <li><a href="" class="transition-colors duration-300 hover:text-gray-500">Portfolio</a></li>
-                    <li><a href="" class="transition-colors duration-300 hover:text-gray-500">Services</a></li>
-                    <li><a href="/about" class="transition-colors duration-300 hover:text-gray-500" wire:navigate.hover>About
+                    <li><a href="" class="transition-colors duration-300 hover:text-gray-500"
+                            wire:navigate.hover>Portfolio</a></li>
+                    <li><a href="/services" class="transition-colors duration-300 hover:text-gray-500"
+                            wire:navigate.hover>Services</a></li>
+                    <li><a href="/about" class="transition-colors duration-300 hover:text-gray-500"
+                            wire:navigate.hover>About
                             me</a></li>
                 </ul>
             </nav>
@@ -21,11 +25,7 @@
         <div class="flex-shrink-0">
             <div
                 class="relative pr-1 ml-auto lang-toggle w-max group hover:after:text-gray-400 after:transition-colors ">
-                <select name="" id=""
-                    class="p-0 mb-2 bg-black-primary font-main select-field appearance-none tracking-[2px] text-xs font-regular border-none w-20 block cursor-pointer transition-colors group-hover:text-gray-400 outline-none shadow-none focus-visible:text-gray-400">
-                    <option class="tracking-[2px]" value="">ENGLISH</option>
-                    <option class="tracking-[2px]" value="">FRENCH</option>
-                </select>
+                <x-user.select-lang />
             </div>
             <x-user.button :is_black="false">
                 HIRE ME
