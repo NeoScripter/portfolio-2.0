@@ -6,7 +6,7 @@
             class="mb-2 text-lg font-thin tracking-widest text-center uppercase md:pt-14 sm:mb-5 font-main xs:text-2xl md:text-3xl lg:text-4xl">
             My portfolio pieces</h2>
 
-        <p class="w-4/5 mx-auto mb-12 text-center sm:mb-20 md:mb-28 xs:text-lg md:text-xl lg:text-2xl">Here are my portfolio pieces</p>
+        <p class="w-3/5 mx-auto mb-12 text-center sm:mb-20 md:mb-28 xs:text-lg md:text-xl lg:text-2xl">Here are my portfolio pieces</p>
 
         <div class="grid gap-20 px-8 mx-auto sm:gap-32 sm:px-10 sm:max-w-screen-md">
 
@@ -30,7 +30,12 @@
                         <span class="block w-12 mx-auto my-4 sm:my-6 h-0.5 bg-black"></span>
                         <p class="mb-8 text-lg text-center sm:px-10 sm:mb-10 text-balance">{{ $project->{'description_' . app()->getLocale()} }}</p>
 
-                        <x-user.link :is_black=true >See the project</x-user.link>
+                       {{--  <x-user.link :is_black=true :url="route('portfolio.show', $project->id)" >See the project</x-user.link> --}}
+
+                        <a href="/project/{{$project->id}}" class=" px-10 py-3 text-xxs block mx-auto w-max tracking-[4px] font-bold font-main transition-colors uppercase duration-300 border text-white bg-black-primary border-black-primary hover:bg-white hover:text-black-primary" wire:navigate>
+                            See the  project
+                        </a>
+
                     </div>
                 </article>
             @endforeach
