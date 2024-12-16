@@ -175,21 +175,42 @@
     font-style: italic;
     font-display: swap;
 }
-/*
-.select-field {
-    background: #121618;
-    outline: none;
-}
 
-.select-field-mobile {
-    background: white;
-    outline: none;
-}
- */
 .select-field-mobile:focus {
     outline: none !important;
     border: none !important;
     box-shadow: none;
+}
+
+.no-marker::marker {
+    content: "";
+}
+
+.no-marker::after {
+    content: "+";
+    font-size: 2em;
+    font-weight: 300;
+    transition: transform 0.3s ease;
+}
+
+details[open] .no-marker::after {
+    content: "—";
+    font-size: 1em;
+}
+
+details::details-content {
+	display: block;
+	block-size: 0;
+	overflow: hidden;
+	transition-property: block-size, content-visibility;
+	transition-duration: 0.5s;
+	transition-behavior: allow-discrete;
+}
+
+details[open]::details-content {
+	block-size: auto;
+
+	block-size: calc-size(auto, size);
 }
 
 .select-field:focus {
@@ -236,7 +257,8 @@
 }
 
 @keyframes zIndexHack {
-    0%, 100% {
+    0%,
+    100% {
         z-index: 10;
     }
 }
