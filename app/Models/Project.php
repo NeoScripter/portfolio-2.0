@@ -19,5 +19,6 @@ class Project extends Model
         'text_content_ru' => 'array',
         'image_content_alt_ru' => 'array',
         'image_content' => 'array',
+        'stack' => 'array',
     ];
 }

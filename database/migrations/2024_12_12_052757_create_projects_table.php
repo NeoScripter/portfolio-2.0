@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('description_ru');
             $table->boolean('is_featured')->default(true);
             $table->integer('priority')->default(1);
+            $table->json('stack')->nullable();
             $table->json('text_content_en')->nullable();
             $table->json('text_content_fr')->nullable();
             $table->json('text_content_ru')->nullable();

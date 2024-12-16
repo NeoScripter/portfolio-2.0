@@ -16,22 +16,32 @@ class ProjectFactory extends Factory
      */
     public function definition(): array
     {
+        $desc_en = str_repeat('This is the description of the current project in English. ', 10);
+        $desc_fr = str_repeat('Ceci est la description du projet actuel en francais. ', 10);
+        $desc_ru = str_repeat('Это описание данного проекта на русском языке. ', 10);
+
+        $image_content = collect(glob(storage_path('app/public/portfolio/*.*')))
+        ->map(fn($path) => 'portfolio/' . basename($path))
+        ->random();
+
         return [
-            'image' => $this->faker->url(),
+            'image' => $image_content,
             'featured_image' => collect(glob(storage_path('app/public/projects/*.*')))
             ->map(fn($path) => 'projects/' . basename($path))
             ->random(),
-            'title_en' => $this->faker->words(3, true),
-            'title_fr' => $this->faker->words(3, true),
-            'title_ru' => $this->faker->words(3, true),
-            'description_en' => $this->faker->paragraph(10),
-            'description_fr' => $this->faker->paragraph(10),
-            'description_ru' => $this->faker->paragraph(10),
+            'stack' => $this->faker->randomElements(['React', 'PHP', 'Rust', 'Laravel', 'HTML', 'Tailwind', 'CSS', 'JavaScript', 'WordPress'], rand(2, 6)),
+            'title_en' => 'This is the project title',
+            'title_fr' => 'C\'est le titre du projet',
+            'title_ru' => 'Это название данного проекта',
+            'is_featured' => true,
+            'description_en' => $desc_en,
+            'description_fr' => $desc_fr,
+            'description_ru' => $desc_ru,
             'website_link' => $this->faker->url,
-            'text_content_en' => json_encode($this->faker->paragraphs(5)),
-            'text_content_fr' => json_encode($this->faker->paragraphs(5)),
-            'text_content_ru' => json_encode($this->faker->paragraphs(5)),
-
+            'text_content_en' => json_encode([$desc_en, $desc_en, $desc_en, $desc_en, $desc_en]),
+            'text_content_fr' => json_encode([$desc_fr, $desc_fr, $desc_fr, $desc_fr, $desc_fr]),
+            'text_content_ru' => json_encode([$desc_ru, $desc_ru, $desc_ru, $desc_ru, $desc_ru]),
+            'image_content' => json_encode([$image_content, $image_content, $image_content, $image_content, $image_content]),
         ];
     }
 }
