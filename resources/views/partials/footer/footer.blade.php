@@ -10,7 +10,7 @@
                 </a>
             </li>
             <li>
-                <a href="" class="block text-lg italic transition-colors duration-300 hover:text-gray-400 xs:text-xl md:text-2xl">Portfolio
+                <a href="/portfolio" wire:navigate.hover class="block text-lg italic transition-colors duration-300 hover:text-gray-400 xs:text-xl md:text-2xl">Portfolio
                     <span class="block mt-1 not-italic font-bold tracking-widest uppercase xs:mt-2 xs:text-xs md:mt-4 md:text-sm text-balance text-xxs font-main">Check out my portfolio</span>
                 </a>
             </li>
@@ -20,7 +20,7 @@
                 </a>
             </li>
             <li>
-                <a href="/services" class="block text-lg italic transition-colors duration-300 hover:text-gray-400 xs:text-xl md:text-2xl" wire:navigate.hover>Services
+                <a href="/services" wire:navigate.hover class="block text-lg italic transition-colors duration-300 hover:text-gray-400 xs:text-xl md:text-2xl">Services
                     <span class="block mt-1 not-italic font-bold tracking-widest uppercase xs:mt-2 xs:text-xs md:mt-4 md:text-sm text-balance text-xxs font-main">See the full list of services that I provide</span>
                 </a>
             </li>

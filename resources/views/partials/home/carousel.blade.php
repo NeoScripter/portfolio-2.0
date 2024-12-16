@@ -78,27 +78,31 @@
             >
 
             <template x-for="slide in slides" :key="slide.index">
-                <div x-data="{ expanded: currentSlide === slide.index }" x-init="$watch('currentSlide', value => expanded = value === slide.index)"
+                <article x-data="{ expanded: currentSlide === slide.index }" x-init="$watch('currentSlide', value => expanded = value === slide.index)"
                     class="grid gap-4 pb-2 transition-all duration-500 shadow-xl w-70" x-cloak
-                    :class="expanded ? 'h-[550px] xs:w-90 grid-rows-open' : 'h-[450px] grid-rows-closed'">
+                    :class="expanded ? 'h-[550px] xs:w-90 grid-rows-open' : 'h-[450px] grid-rows-closed'"
+                    :aria-expanded="expanded"
+                    role="region"
+                    :aria-labelledby="`portfolio-title-${slide.index}`">
                     <!-- Slide Content -->
                     <div class="flex flex-col overflow-hidden">
                         <div class="overflow-hidden basis-9/10">
                             <img :src="slide.image" :alt="slide.title"
-                                class="object-cover object-top w-full h-full">
+                                class="object-cover object-top w-full h-full" loading="lazy">
                         </div>
-                        <h3 class="block mt-4 text-sm font-medium tracking-widest text-center uppercase basis-1/10 md:text-base font-main" x-text="slide.title"></h3>
+                        <h3 :id="`portfolio-title-${slide.index}`"  class="block mt-4 text-sm font-medium tracking-widest text-center uppercase basis-1/10 md:text-base font-main" x-text="slide.title"></h3>
                     </div>
                     <div
                         class="flex flex-col items-center px-6 overflow-hidden md:px-10">
                         <span class="block w-10 h-1 mx-auto mb-6 border-t-2 border-black"></span>
                         <p class="block mb-6" x-text="slide.desc"></p>
                         <a :href="slide.link"
-                            class="px-10 mt-auto block py-3 mb-4 w-full cursor-pointer text-xxs text-center tracking-[4px] font-bold font-main text-white uppercase bg-black transition-colors duration-300 border border-black hover:bg-white hover:text-black">
+                            class="px-10 mt-auto block py-3 mb-4 w-full cursor-pointer text-xxs text-center tracking-[4px] font-bold font-main text-white uppercase bg-black transition-colors duration-300 border border-black hover:bg-white hover:text-black"
+                            :aria-label="`View details for ${slide.title}`">
                             Details
                         </a>
                     </div>
-                </div>
+                </article>
             </template>
 
 
@@ -106,12 +110,14 @@
     </div>
 
     <div class="flex items-center gap-6 mx-auto text-sm font-bold w-max font-main">
-        <button @click="shiftSlide('prev')" class="w-5 h-5">
-            <img src="{{ asset('images/partials/carrette-left.svg') }}" class="w-full h-full" alt="Arrow left" aria-hidden>
+        <button @click="shiftSlide('prev')" class="w-5 h-5" aria-label="Previous slide">
+            <img src="{{ asset('images/partials/carrette-left.svg') }}" class="w-full h-full" alt="Arrow left" aria-hidden="true">
         </button>
-        <div><span x-text="displayedSlide"></span> / <span x-text="slides.length - 2"></span></div>
-        <button @click="shiftSlide('next')" class="w-5 h-5">
-            <img src="{{ asset('images/partials/carrette-right.svg') }}" class="w-full h-full" alt="Arrow right" aria-hidden>
+        <div>
+            <span x-text="displayedSlide" aria-label="Current slide"></span> / <span x-text="slides.length - 2" aria-label="Total slides"></span>
+        </div>
+        <button @click="shiftSlide('next')" class="w-5 h-5" aria-label="Next slide">
+            <img src="{{ asset('images/partials/carrette-right.svg') }}" class="w-full h-full" alt="Arrow right" aria-hidden="true">
         </button>
     </div>
 

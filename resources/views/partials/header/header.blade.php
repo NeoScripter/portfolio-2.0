@@ -12,7 +12,7 @@
                     <li><a href="/" class="transition-colors duration-300 hover:text-gray-500"
                             wire:navigate.hover>Home</a>
                     </li>
-                    <li><a href="" class="transition-colors duration-300 hover:text-gray-500"
+                    <li><a href="/portfolio" class="transition-colors duration-300 hover:text-gray-500"
                             wire:navigate.hover>Portfolio</a></li>
                     <li><a href="/services" class="transition-colors duration-300 hover:text-gray-500"
                             wire:navigate.hover>Services</a></li>
