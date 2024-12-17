@@ -1,7 +1,7 @@
 <div x-show="showPopup" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="translate-x-full"
     x-transition:enter-end="translate-x-0" x-transition:leave="transition ease-in duration-500"
     x-transition:leave-start="translate-x-0" x-transition:leave-end="translate-x-full" @click.away="showPopup=false"
-    x-cloak class="absolute top-0 right-0 z-10 p-4 bg-white shadow-xl w-80 md:hidden">
+    x-cloak class="absolute top-0 right-0 z-30 p-4 bg-white shadow-xl w-80 md:hidden">
 
     <div class="flex items-center justify-between gap-2">
 

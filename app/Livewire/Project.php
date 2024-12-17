@@ -10,7 +10,11 @@ class Project extends Component
     public $project;
 
     public function mount($id) {
-        $this->project = ModelsProject::findOrFail($id);
+        $this->project = ModelsProject::select([
+            'image', 'featured_image', 'image_alt_' . app()->getLocale(), 'title_' . app()->getLocale(),
+            'description_' . app()->getLocale(), 'stack', 'text_content_' . app()->getLocale(),
+            'image_content_alt_' . app()->getLocale(), 'website_link', 'image_content'
+        ])->findOrFail($id);
     }
 
     public function render()

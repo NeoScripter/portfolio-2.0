@@ -38,10 +38,13 @@ class ProjectFactory extends Factory
             'description_fr' => $desc_fr,
             'description_ru' => $desc_ru,
             'website_link' => $this->faker->url,
-            'text_content_en' => json_encode([$desc_en, $desc_en, $desc_en, $desc_en, $desc_en]),
-            'text_content_fr' => json_encode([$desc_fr, $desc_fr, $desc_fr, $desc_fr, $desc_fr]),
-            'text_content_ru' => json_encode([$desc_ru, $desc_ru, $desc_ru, $desc_ru, $desc_ru]),
-            'image_content' => json_encode([$image_content, $image_content, $image_content, $image_content, $image_content]),
+            'image_content_alt_en' => $this->faker->sentences(5),
+            'image_content_alt_fr' => $this->faker->sentences(5),
+            'image_content_alt_ru' => $this->faker->sentences(5),
+            'text_content_en' => [$desc_en, $desc_en, $desc_en, $desc_en, $desc_en],
+            'text_content_fr' => [$desc_fr, $desc_fr, $desc_fr, $desc_fr, $desc_fr],
+            'text_content_ru' => [$desc_ru, $desc_ru, $desc_ru, $desc_ru, $desc_ru],
+            'image_content' => [$image_content, $image_content, $image_content],
         ];
     }
 }
