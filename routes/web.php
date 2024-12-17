@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\ProjectController;
+use App\Http\Controllers\DashboardController;
 use App\Livewire\AboutMePage;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\HomePage as LivewireHomePage;
@@ -34,12 +36,26 @@ Route::get('/locale/{locale}', function ($locale) {
     return redirect()->back();
 })->name('locale');
 
-Route::view('dashboard', 'dashboard')
+/* Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
+ */
 
-Route::view('profile', 'profile')
-    ->middleware(['auth'])
-    ->name('profile');
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+    Route::view('profile', 'profile')
+        ->name('profile');
+
+
+    Route::get('/admin/projects/{project}', [ProjectController::class, 'edit'])->name('admin.project.edit');
+    Route::post('/admin/project', [ProjectController::class, 'store'])->name('admin.project.store');
+    Route::put('/admin/project/{project}', [ProjectController::class, 'update'])->name('admin.project.update');
+    Route::delete('/admin/project/{project}', [ProjectController::class, 'destroy'])->name('admin.project.destroy');
+
+    Route::get('/admin/projects/{search?}', [ProjectController::class, 'index'])
+    ->where('search', '.*')
+    ->name('admin.projects.index');
+});
+
+require __DIR__ . '/auth.php';
