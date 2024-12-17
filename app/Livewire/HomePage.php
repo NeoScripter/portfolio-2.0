@@ -22,7 +22,7 @@ class HomePage extends Component
                 'image_alt' => $project->{'image_alt_' . app()->getLocale()},
                 'title' => $project->{'title_' . app()->getLocale()},
                 'desc' => Str::words($project->{'description_' . app()->getLocale()}, 25),
-                'link' => $project->website_link,
+                'link' => route('project', $project->id),
             ];
         })->toArray();
 

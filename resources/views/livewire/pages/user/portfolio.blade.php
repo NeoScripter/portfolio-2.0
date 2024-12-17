@@ -30,11 +30,7 @@
                         <span class="block w-12 mx-auto my-4 sm:my-6 h-0.5 bg-black"></span>
                         <p class="mb-8 text-lg text-center sm:px-10 sm:mb-10 text-balance">{{ $project->{'description_' . app()->getLocale()} }}</p>
 
-                       {{--  <x-user.link :is_black=true :url="route('portfolio.show', $project->id)" >See the project</x-user.link> --}}
-
-                        <a href="/project/{{$project->id}}" class=" px-10 py-3 text-xxs block mx-auto w-max tracking-[4px] font-bold font-main transition-colors uppercase duration-300 border text-white bg-black-primary border-black-primary hover:bg-white hover:text-black-primary" wire:navigate>
-                            See the  project
-                        </a>
+                        <x-user.link :is_black=true :url="route('project', $project->id)" >See the project</x-user.link>
 
                     </div>
                 </article>

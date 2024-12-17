@@ -53,5 +53,7 @@
             Nam, itaque debitis? Eius aliquid odio id officiis, placeat laudantium cupiditate accusantium.</p>
     </section>
 
-    <x-user.call-bar/>
+    <div class="pt-4 sm:pt-6 md:pt-8">
+        <x-user.call-bar/>
+    </div>
 </div>
