@@ -15,12 +15,12 @@
                     <hr>
                     <div>
                         <div>
-                            <p class="block mb-1 font-bold text-black font-sm text-md">{{ $project->title_en }}</p>
+                            <p class="block mb-2 font-bold text-black uppercase font-sm text-md">{{ $project->title_en }}</p>
                         </div>
                         @if ($project->image)
                             <div>
                                 <figure class="relative max-w-sm mb-1">
-                                    <img class="rounded-lg max-w-32" src="{{ Storage::url($project->image) }}"
+                                    <img class="rounded-lg max-w-48" src="{{ Storage::url($project->image) }}"
                                         alt="project's image">
                                 </figure>
                             </div>

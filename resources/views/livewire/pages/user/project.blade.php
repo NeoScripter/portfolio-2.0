@@ -3,8 +3,11 @@
     @isset($project)
         <section aria-labelledby="project-title">
             <div class="pb-6 text-white sm:pb-10 md:pb-14 bg-black-primary">
-                <div class="pt-6 mb-4 md:pt-10 sm:mb-6 ">
-                    <span class="block mx-auto mb-2 italic tracking-widest text-center md:text-lg sm:mb-4 w-max" aria-hidden="true">Byte Engine</span>
+
+                <div class="px-10 pt-3 mb-4 md:pt-6 sm:mb-6">
+
+
+                    <span class="block mx-auto mt-3 mb-2 italic tracking-widest text-center md:mt-4 md:text-lg sm:mb-4 w-max" aria-hidden="true">Byte Engine</span>
                     <h2 id="project-title"
                         class="text-2xl font-thin tracking-widest text-center uppercase sm:text-3xl font-main md:text-4xl lg:text-5xl">
                         {{ $project->{'title_' . app()->getLocale()} }}</h2>

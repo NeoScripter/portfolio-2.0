@@ -3,6 +3,8 @@
 
     @if ($isTextarea)
         <x-admin.text-area :id="$name" :name="$name" class="block w-full mt-1" rows="4">{{ $value }}</x-admin.text-area>
+    @elseif ($type === "number")
+        <x-admin.text-input :id="$name" :name="$name" :type="$type" class="block w-40 mt-1" :value="$value" />
     @else
         <x-admin.text-input :id="$name" :name="$name" :type="$type" class="block w-full mt-1" :value="$value" />
     @endif
