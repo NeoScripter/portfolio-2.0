@@ -1,4 +1,4 @@
-<div x-data="multiImageUploader">
+<div x-data="multiImageUploader({{ json_encode($value ?? null) }})">
     <!-- Label -->
     <p class="block mb-1 text-sm font-medium text-gray-700">{{ $label }}</p>
 
@@ -38,8 +38,8 @@
 
 <script>
     document.addEventListener('alpine:init', () => {
-        Alpine.data('multiImageUploader', () => ({
-            uploadedImages: {{ json_encode($values) }},
+        Alpine.data('multiImageUploader', (initialValue = null) => ({
+            uploadedImages: initialValue ? initialValue : [],
 
             updatePreviews(event) {
                 const files = Array.from(event.target.files);
@@ -71,7 +71,8 @@
                 this.uploadedImages.splice(this.draggedImageIndex, 1);
                 this.uploadedImages.splice(index, 0, draggedImage);
 
-                document.querySelectorAll('[draggable="true"]').forEach(el => el.classList.remove('dragged'));
+                document.querySelectorAll('[draggable="true"]').forEach(el => el.classList.remove(
+                    'dragged'));
 
                 this.draggedImageIndex = null;
             }

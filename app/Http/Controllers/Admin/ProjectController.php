@@ -58,8 +58,8 @@ class ProjectController extends Controller
     {
         $validated = $request->validate([
             'title_en' => 'required|string|max:255',
-            'title_fr' => 'nullable|string|max:255',
-            'title_ru' => 'nullable|string|max:255',
+            'title_fr' => 'required|string|max:255',
+            'title_ru' => 'required|string|max:255',
             'description_en' => 'required|string|max:1500',
             'description_fr' => 'required|string|max:1500',
             'description_ru' => 'required|string|max:1500',
@@ -119,8 +119,8 @@ class ProjectController extends Controller
     {
         $validated = $request->validate([
             'title_en' => 'required|string|max:255',
-            'title_fr' => 'nullable|string|max:255',
-            'title_ru' => 'nullable|string|max:255',
+            'title_fr' => 'required|string|max:255',
+            'title_ru' => 'required|string|max:255',
             'description_en' => 'required|string|max:1500',
             'description_fr' => 'required|string|max:1500',
             'description_ru' => 'required|string|max:1500',

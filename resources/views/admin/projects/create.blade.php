@@ -12,9 +12,9 @@
     <form method="POST" action="{{ route('admin.project.store') }}" enctype="multipart/form-data" class="mt-4 space-y-8">
         @csrf
 
-        <x-form-field name="title_en" label="English title" />
-        <x-form-field name="title_fr" label="French title" />
-        <x-form-field name="title_ru" label="Russian title" />
+        <x-form-field name="title_en" label="English title" :value="old('title_en')" />
+        <x-form-field name="title_fr" label="French title" :value="old('title_fr')" />
+        <x-form-field name="title_ru" label="Russian title" :value="old('title_ru')" />
 
         <x-admin.image-upload
             label="Project main image"
@@ -28,19 +28,19 @@
             input-name="featured_image"
         />
 
-        <x-form-field name="image_alt_en" label="English featured image alt" />
-        <x-form-field name="image_alt_fr" label="French featured image alt" />
-        <x-form-field name="image_alt_ru" label="Russian featured image alt" />
+        <x-form-field name="image_alt_en" label="English featured image alt" :value="old('image_alt_en')" />
+        <x-form-field name="image_alt_fr" label="French featured image alt" :value="old('image_alt_fr')" />
+        <x-form-field name="image_alt_ru" label="Russian featured image alt" :value="old('image_alt_ru')" />
 
-        <x-form-field name="description_en" :isTextarea=true label="English main description" />
-        <x-form-field name="description_fr" :isTextarea=true label="French main description" />
-        <x-form-field name="description_ru" :isTextarea=true label="Russian main description" />
+        <x-form-field name="description_en" :isTextarea=true label="English main description" :value="old('description_en')" />
+        <x-form-field name="description_fr" :isTextarea=true label="French main description" :value="old('description_fr')" />
+        <x-form-field name="description_ru" :isTextarea=true label="Russian main description" :value="old('description_ru')" />
 
         <x-admin.checkbox name="is_featured" label="Show on the homepage" />
 
-        <x-form-field name="priority" type="number" label="Displaying order" />
+        <x-form-field name="priority" type="number" label="Displaying order" :value="old('priority')" />
 
-        <x-form-field name="website_link" label="Website link" />
+        <x-form-field name="website_link" label="Website link" :value="old('website_link')" />
 
         <x-admin.array-field
             field-name="stack"
@@ -114,34 +114,14 @@
             <x-admin.primary-button>{{ __('Create') }}</x-admin.primary-button>
         </div>
     </form>
+
+   {{--  <script>
+        document.addEventListener('alpine:init', function () {
+            const firstError = document.querySelector('.text-red-600');
+            if (firstError) {
+                firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                firstError.focus();
+            }
+        });
+    </script> --}}
 </section>
-
-
-{{--
-$table->json('image_content')->nullable();
-
-
-$table->json('stack')->nullable();
-$table->json('text_content_en')->nullable();
-$table->json('text_content_fr')->nullable();
-$table->json('text_content_ru')->nullable();
-$table->json('image_content')->nullable();
-$table->json('image_content_alt_en')->nullable();
-$table->json('image_content_alt_fr')->nullable();
-$table->json('image_content_alt_ru')->nullable();
-$table->string('website_link')->nullable();
-$table->boolean('is_featured')->default(true);
-$table->integer('priority')->default(1);
-$table->string('description_en');
-$table->string('description_fr');
-$table->string('description_ru');
-$table->string('featured_image')->nullable();
-$table->string('image_alt_en')->nullable();
-$table->string('image_alt_fr')->nullable();
-$table->string('image_alt_ru')->nullable();
-$table->string('image')->nullable();
-$table->string('title_en');
-$table->string('title_fr');
-$table->string('title_ru');
-
---}}

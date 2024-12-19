@@ -11,7 +11,7 @@ class Portfolio extends Component
     public function render()
     {
         return view('livewire.pages.user.portfolio', [
-            'projects' => Project::paginate(6),
+            'projects' => Project::orderBy('priority', 'desc')->paginate(6),
         ]);
     }
 }

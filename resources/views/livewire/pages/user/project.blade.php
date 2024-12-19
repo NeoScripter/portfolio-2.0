@@ -16,7 +16,7 @@
 
                     @foreach ($project->stack as $item)
                         <div
-                            class="px-3 py-1 font-bold tracking-widest text-black uppercase bg-gray-100 text-xxs rounded-2xl font-main sm:text-xs"
+                            class="px-3 py-1 font-bold tracking-widest text-black uppercase bg-gray-100 text-xxs rounded-2xl font-main"
                             aria-label="Technology: {{ $item }}">
                             {{ $item }}
                         </div>
@@ -28,7 +28,7 @@
                     </div>
                     <img src="{{ Storage::url($project->image) }}" alt="{{ $project->{'image_alt_' . app()->getLocale()} }}"
                         class="object-cover object-top w-full h-full">
-                    <figcaption class="sr-only">{{ $project->{'image_alt_' . app()->getLocale()} }}</figcaption>
+                    <figcaption class="sr-only">{{ $project->{'image_alt_' . app()->getLocale()} ?? 'No description available' }}</figcaption>
                 </figure>
 
                 <p
@@ -40,7 +40,7 @@
 
 
             <div
-                class="px-5 pt-10 mx-auto space-y-10 pb-14 md:pt-14 sm:pb-20 md:pb-26 md:space-y-14 sm:px-10 xs:px-8 sm:max-w-screen-md">
+                class="gap-24 px-5 pt-10 mx-auto space-y-10 pb-14 md:pt-16 sm:pb-20 md:pb-28 md:space-y-16 sm:px-10 xs:px-8 sm:max-w-screen-sm md:max-w-full md:columns-2">
                 @php
                     $image_alts = $project->{'image_content_alt_' . app()->getLocale()};
                     $texts = $project->{'text_content_' . app()->getLocale()};
@@ -49,15 +49,15 @@
 
 
                 @foreach ($texts as $index => $image)
-                    <div class="text-lg md:text-xl text-balance">
-                        {!! $texts[$index] !!}
+                    <div class="font-serif text-lg text-center md:text-xl text-balance">
+                        {{ $texts[$index] }}
                     </div>
 
                     @isset($images[$index])
-                        <figure>
-                            <img src="{{ Storage::url($images[$index]) }}" alt="{{ $image_alts[$index] }}"
+                        <figure class="max-w-screen-sm mx-auto ">
+                            <img src="{{ Storage::url($images[$index]) }}" alt="{{ $image_alts[$index] ?? '' }}"
                                 class="object-cover object-top w-full h-full rounded-xl" loading="lazy">
-                            <figcaption class="sr-only">{{ $image_alts[$index] }}</figcaption>
+                            <figcaption class="sr-only">{{ $image_alts[$index] ?? 'No description available' }}</figcaption>
                         </figure>
                     @endisset
                 @endforeach

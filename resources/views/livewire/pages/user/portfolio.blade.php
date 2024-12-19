@@ -18,7 +18,7 @@
 
 
                     <div class="sm:flex-1">
-                        <h3 class="mb-4 font-bold tracking-widest text-center uppercase mt-14 text-balance font-main">{{ $project->{'title_' . app()->getLocale()} }}</h3>
+                        <h3 class="mb-4 font-bold tracking-widest text-center uppercase md:mx-auto md:w-3/4 mt-14 text-balance font-main">{{ $project->{'title_' . app()->getLocale()} }}</h3>
                         <div class="flex flex-wrap items-center justify-center gap-2 mx-auto mb-6 xs:w-2/3">
 
                             @foreach ($project->stack as $item)

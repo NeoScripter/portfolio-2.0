@@ -155,6 +155,15 @@
                     </x-admin.danger-button>
                 </div>
             </form>
+           {{--  <script>
+                document.addEventListener('alpine:init', function () {
+                    const firstError = document.querySelector('.text-red-600');
+                    if (firstError) {
+                        firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        firstError.focus();
+                    }
+                });
+            </script> --}}
         </x-admin.modal>
     @endif
 
