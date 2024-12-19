@@ -1,14 +1,14 @@
 <x-admin-layout>
     <x-slot name="header">
         <h2 class="text-xl font-semibold leading-tight text-gray-800">
-            Редактировать менеджера
+            Edit project
         </h2>
     </x-slot>
 
     @if (isset($project))
         <section>
             <form method="POST" action="{{ route('admin.project.update', $project->id) }}" enctype="multipart/form-data"
-                class="mt-4 space-y-4">
+                class="mt-4 space-y-8">
                 @csrf
                 @method('PUT')
 
@@ -63,6 +63,7 @@
                     label="Project descriptions in English"
                     singular-label="English description"
                     placeholder="This project represents..."
+                    :isTextarea=true
                     :values="$project->text_content_en"
                 />
 
@@ -71,6 +72,7 @@
                     label="Project descriptions in French"
                     singular-label="French description"
                     placeholder="Ce projet represent..."
+                    :isTextarea=true
                     :values="$project->text_content_fr"
                 />
 
@@ -79,6 +81,7 @@
                     label="Project descriptions in Russian"
                     singular-label="Russian description"
                     placeholder="Этот проект представляет собой..."
+                    :isTextarea=true
                     :values="$project->text_content_ru"
                 />
 

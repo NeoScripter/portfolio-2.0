@@ -9,7 +9,7 @@
         </p>
     </div>
 
-    <form method="POST" action="{{ route('admin.project.store') }}" enctype="multipart/form-data" class="mt-4 space-y-4">
+    <form method="POST" action="{{ route('admin.project.store') }}" enctype="multipart/form-data" class="mt-4 space-y-8">
         @csrf
 
         <x-form-field name="title_en" label="English title" />
@@ -55,6 +55,7 @@
             label="Project descriptions in English"
             singular-label="English description"
             placeholder="This project represents..."
+            :isTextarea=true
             :values="[]"
         />
 
@@ -63,6 +64,7 @@
             label="Project descriptions in French"
             singular-label="French description"
             placeholder="Ce projet represent..."
+            :isTextarea=true
             :values="[]"
         />
 
@@ -71,6 +73,7 @@
             label="Project descriptions in Russian"
             singular-label="Russian description"
             placeholder="Этот проект представляет собой..."
+            :isTextarea=true
             :values="[]"
         />
 

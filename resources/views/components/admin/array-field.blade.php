@@ -3,6 +3,7 @@
     'label',
     'singularLabel',
     'placeholder' => '',
+    'isTextarea' => false,
     'values' => [],
 ])
 
@@ -22,8 +23,13 @@
     <!-- Dynamic inputs -->
     <template x-for="(item, index) in items" :key="index">
         <div class="flex items-center mb-2 space-x-2">
-            <input type="text" :name="`${fieldName}[${index}]`" x-model="items[index]"
-                class="block w-full mt-1 rounded-md shadow-sm" :placeholder="placeholder" />
+            @if ($isTextarea)
+                <textarea :name="`${fieldName}[${index}]`" x-model="items[index]"
+            class="block w-full mt-1 rounded-md shadow-sm" :placeholder="placeholder" rows="8"></textarea>
+            @else
+                <input type="text" :name="`${fieldName}[${index}]`" x-model="items[index]"
+            class="block w-full mt-1 rounded-md shadow-sm" :placeholder="placeholder" />
+            @endif
             <x-admin.danger-button type="button" @click="removeItem(index)" class="py-3 mt-1">
                 Delete
             </x-admin.danger-button>

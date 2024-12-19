@@ -40,6 +40,12 @@ new class extends Component
                         {{ __('Projects') }}
                     </x-admin.nav-link>
                 </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-admin.nav-link :href="route('admin.services.index')" :active="request()->routeIs('admin.services.index')" wire:navigate>
+                        {{ __('Services') }}
+                    </x-admin.nav-link>
+                </div>
             </div>
 
             <!-- Settings Dropdown -->
@@ -95,6 +101,12 @@ new class extends Component
         <div class="space-y-1">
             <x-admin.responsive-nav-link :href="route('admin.projects.index')" :active="request()->routeIs('admin.projects.index')" wire:navigate>
                 {{ __('Projects') }}
+            </x-admin.responsive-nav-link>
+        </div>
+
+        <div class="space-y-1">
+            <x-admin.responsive-nav-link :href="route('admin.services.index')" :active="request()->routeIs('admin.services.index')" wire:navigate>
+                {{ __('Services') }}
             </x-admin.responsive-nav-link>
         </div>
 

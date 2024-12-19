@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\ProjectController;
+use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\DashboardController;
 use App\Livewire\AboutMePage;
 use Illuminate\Support\Facades\Route;
@@ -47,15 +48,25 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::view('profile', 'profile')
         ->name('profile');
 
-
+    Route::get('/admin/projects', [ProjectController::class, 'index'])->name('admin.projects.index');
     Route::get('/admin/projects/{project}', [ProjectController::class, 'edit'])->name('admin.project.edit');
     Route::post('/admin/project', [ProjectController::class, 'store'])->name('admin.project.store');
     Route::put('/admin/project/{project}', [ProjectController::class, 'update'])->name('admin.project.update');
     Route::delete('/admin/project/{project}', [ProjectController::class, 'destroy'])->name('admin.project.destroy');
 
-    Route::get('/admin/projects/{search?}', [ProjectController::class, 'index'])
+   /*  Route::get('/admin/projects/{search?}', [ProjectController::class, 'index'])
     ->where('search', '.*')
-    ->name('admin.projects.index');
+    ->name('admin.projects.index'); */
+
+    Route::get('/admin/services', [ServiceController::class, 'index'])->name('admin.services.index');
+    Route::get('/admin/services/{service}', [ServiceController::class, 'edit'])->name('admin.service.edit');
+    Route::post('/admin/service', [ServiceController::class, 'store'])->name('admin.service.store');
+    Route::put('/admin/service/{service}', [ServiceController::class, 'update'])->name('admin.service.update');
+    Route::delete('/admin/service/{service}', [ServiceController::class, 'destroy'])->name('admin.service.destroy');
+
+    /* Route::get('/admin/services/{search?}', [ServiceController::class, 'index'])
+    ->where('search', '.*')
+    ->name('admin.services.index'); */
 });
 
 require __DIR__ . '/auth.php';

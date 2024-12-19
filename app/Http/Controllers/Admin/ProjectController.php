@@ -9,15 +9,15 @@ use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
-    // Fetch and optionally search for projects
-    public function index($search = null)
+
+    public function index(Request $request)
     {
-        $projects = Project::orderBy('priority', 'desc');
+        $search = $request->query('search');
+
+        $projects = Project::query()->orderBy('priority', 'desc');
 
         if ($search) {
-            $projects->where(function ($query) use ($search) {
-                $query->where('title_en', 'like', "%{$search}%");
-            });
+            $projects->where('title_en', 'like', "%{$search}%");
         }
 
         $projects = $projects->paginate(5);
@@ -25,7 +25,6 @@ class ProjectController extends Controller
         return view('admin.projects', compact('projects'));
     }
 
-    // Delete a Project
     public function destroy(Project $project)
     {
         if ($project->image) {
@@ -50,13 +49,11 @@ class ProjectController extends Controller
         ]);
     }
 
-    // Edit a Project
     public function edit(Project $project)
     {
         return view('admin.projects.edit', compact('project'));
     }
 
-    // Store a New Project
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -80,9 +77,9 @@ class ProjectController extends Controller
             'text_content_en.*' => 'nullable|string|max:1500',
             'text_content_fr.*' => 'nullable|string|max:1500',
             'text_content_ru.*' => 'nullable|string|max:1500',
-            'image_alt_en' => 'nullable|array',
-            'image_alt_fr' => 'nullable|array',
-            'image_alt_ru' => 'nullable|array',
+            'image_alt_en' => 'nullable|string|max:255',
+            'image_alt_fr' => 'nullable|string|max:255',
+            'image_alt_ru' => 'nullable|string|max:255',
             'image_content_alt_en' => 'nullable|array',
             'image_content_alt_fr' => 'nullable|array',
             'image_content_alt_ru' => 'nullable|array',
@@ -118,7 +115,6 @@ class ProjectController extends Controller
         ]);
     }
 
-    // Update an Existing Project
     public function update(Request $request, Project $project)
     {
         $validated = $request->validate([
@@ -142,9 +138,9 @@ class ProjectController extends Controller
             'text_content_en.*' => 'nullable|string|max:1500',
             'text_content_fr.*' => 'nullable|string|max:1500',
             'text_content_ru.*' => 'nullable|string|max:1500',
-            'image_alt_en' => 'nullable|array',
-            'image_alt_fr' => 'nullable|array',
-            'image_alt_ru' => 'nullable|array',
+            'image_alt_en' => 'nullable|string',
+            'image_alt_fr' => 'nullable|string',
+            'image_alt_ru' => 'nullable|string',
             'image_content_alt_en' => 'nullable|array',
             'image_content_alt_fr' => 'nullable|array',
             'image_content_alt_ru' => 'nullable|array',
