@@ -20,5 +20,6 @@ class Project extends Model
         'image_content_alt_ru' => 'array',
         'image_content' => 'array',
         'stack' => 'array',
+        'is_featured' => 'boolean',
     ];
 }

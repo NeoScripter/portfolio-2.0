@@ -9,18 +9,18 @@ use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
+    // Fetch and optionally search for projects
     public function index($search = null)
     {
-        $projects = Project::latest();
+        $projects = Project::orderBy('priority', 'desc');
 
         if ($search) {
             $projects->where(function ($query) use ($search) {
-                $query->where('title', 'like', "%{$search}%");
+                $query->where('title_en', 'like', "%{$search}%");
             });
         }
 
         $projects = $projects->paginate(5);
-
 
         return view('admin.projects', compact('projects'));
     }
@@ -31,27 +31,62 @@ class ProjectController extends Controller
         if ($project->image) {
             Storage::disk('public')->delete($project->image);
         }
+
+        if ($project->featured_image) {
+            Storage::disk('public')->delete($project->featured_image);
+        }
+
+        if ($project->image_content) {
+            foreach ($project->image_content as $imagePath) {
+                Storage::disk('public')->delete($imagePath);
+            }
+        }
+
         $project->delete();
 
         return redirect()->route('admin.projects.index')->with([
             'status' => 'success',
-            'message' => 'Менеджер удален!',
+            'message' => 'Project deleted!',
         ]);
     }
 
+    // Edit a Project
     public function edit(Project $project)
     {
         return view('admin.projects.edit', compact('project'));
     }
 
+    // Store a New Project
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'phone' => 'required|string|max:255|regex:/^[\d-]+$/',
-            'email' => 'required|email|unique:Projects,email',
-            'supplier_id' => 'required|exists:suppliers,id',
+            'title_en' => 'required|string|max:255',
+            'title_fr' => 'nullable|string|max:255',
+            'title_ru' => 'nullable|string|max:255',
+            'description_en' => 'required|string|max:1500',
+            'description_fr' => 'required|string|max:1500',
+            'description_ru' => 'required|string|max:1500',
             'image' => 'nullable|image|max:1024',
+            'is_featured' => 'nullable|boolean',
+            'priority' => 'nullable|integer|min:1',
+            'image_content' => 'nullable|array',
+            'image_content.*' => 'nullable|image|max:1024',
+            'featured_image' => 'nullable|image|max:1024',
+            'stack' => 'nullable|array',
+            'stack.*' => 'nullable|string|max:255',
+            'text_content_en' => 'nullable|array',
+            'text_content_fr' => 'nullable|array',
+            'text_content_ru' => 'nullable|array',
+            'text_content_en.*' => 'nullable|string|max:1500',
+            'text_content_fr.*' => 'nullable|string|max:1500',
+            'text_content_ru.*' => 'nullable|string|max:1500',
+            'image_alt_en' => 'nullable|array',
+            'image_alt_fr' => 'nullable|array',
+            'image_alt_ru' => 'nullable|array',
+            'image_content_alt_en' => 'nullable|array',
+            'image_content_alt_fr' => 'nullable|array',
+            'image_content_alt_ru' => 'nullable|array',
+            'website_link' => 'nullable|string|max:255',
         ]);
 
         $imagePath = null;
@@ -59,41 +94,93 @@ class ProjectController extends Controller
             $imagePath = $request->file('image')->store('projects', 'public');
         }
 
+        $featuredImagePath = null;
+        if ($request->hasFile('featured_image')) {
+            $featuredImagePath = $request->file('featured_image')->store('projects', 'public');
+        }
+
+        $imageContentPaths = [];
+        if ($request->hasFile('image_content')) {
+            foreach ($request->file('image_content') as $image) {
+                $imageContentPaths[] = $image->store('projects', 'public');
+            }
+        }
+
         Project::create(array_merge($validated, [
             'image' => $imagePath,
+            'featured_image' => $featuredImagePath,
+            'image_content' => $imageContentPaths,
         ]));
 
         return redirect()->route('admin.projects.index')->with([
             'status' => 'success',
-            'message' => 'Менеджер успешно создан!',
+            'message' => 'Project successfully created!',
         ]);
     }
 
+    // Update an Existing Project
     public function update(Request $request, Project $project)
     {
         $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'phone' => 'required|string|max:255|regex:/^[\d-]+$/',
-            'email' => 'required|email|unique:Projects,email,' . $project->id,
+            'title_en' => 'required|string|max:255',
+            'title_fr' => 'nullable|string|max:255',
+            'title_ru' => 'nullable|string|max:255',
+            'description_en' => 'required|string|max:1500',
+            'description_fr' => 'required|string|max:1500',
+            'description_ru' => 'required|string|max:1500',
             'image' => 'nullable|image|max:1024',
+            'is_featured' => 'nullable|boolean',
+            'priority' => 'nullable|integer|min:1',
+            'image_content' => 'nullable|array',
+            'image_content.*' => 'nullable|image|max:1024',
+            'featured_image' => 'nullable|image|max:1024',
+            'stack' => 'nullable|array',
+            'stack.*' => 'nullable|string|max:255',
+            'text_content_en' => 'nullable|array',
+            'text_content_fr' => 'nullable|array',
+            'text_content_ru' => 'nullable|array',
+            'text_content_en.*' => 'nullable|string|max:1500',
+            'text_content_fr.*' => 'nullable|string|max:1500',
+            'text_content_ru.*' => 'nullable|string|max:1500',
+            'image_alt_en' => 'nullable|array',
+            'image_alt_fr' => 'nullable|array',
+            'image_alt_ru' => 'nullable|array',
+            'image_content_alt_en' => 'nullable|array',
+            'image_content_alt_fr' => 'nullable|array',
+            'image_content_alt_ru' => 'nullable|array',
+            'website_link' => 'nullable|string|max:255',
         ]);
 
         if ($request->hasFile('image')) {
             if ($project->image) {
                 Storage::disk('public')->delete($project->image);
             }
+            $project->image = $request->file('image')->store('projects', 'public');
+        }
 
-            $imagePath = $request->file('image')->store('projects', 'public');
-            $project->image = $imagePath;
+        if ($request->hasFile('featured_image')) {
+            if ($project->featured_image) {
+                Storage::disk('public')->delete($project->featured_image);
+            }
+            $project->featured_image = $request->file('featured_image')->store('projects', 'public');
+        }
+
+        $imageContentPaths = $project->image_content ?? [];
+        if ($request->hasFile('image_content')) {
+            foreach ($request->file('image_content') as $image) {
+                $imageContentPaths[] = $image->store('projects', 'public');
+            }
         }
 
         $project->update(array_merge($validated, [
             'image' => $project->image,
+            'featured_image' => $project->featured_image,
+            'image_content' => $imageContentPaths,
         ]));
 
         return redirect()->route('admin.projects.index')->with([
             'status' => 'success',
-            'message' => 'Менеджер успешно обновлен!',
+            'message' => 'Project successfully updated!',
         ]);
     }
 }

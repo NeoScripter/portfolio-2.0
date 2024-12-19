@@ -16,17 +16,19 @@
                         upload</span> or drag and drop</p>
                 <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
             </div>
-            <input id="{{ $inputId }}" name="{{ $inputName }}" type="file" class="hidden" multiple @change="updatePreviews">
+            <input id="{{ $inputId }}" name="{{ $inputName }}[]" type="file" class="hidden" multiple
+                @change="updatePreviews">
         </label>
     </div>
 
     <!-- Preview Images -->
-    <div class="grid grid-cols-2 gap-4 mt-4" x-show="uploadedImages.length > 0">
+    <div class="grid grid-cols-2 gap-4 mt-4 sm:grid-cols-3 md:grid-cols-5" x-show="uploadedImages.length > 0">
         <template x-for="(image, index) in uploadedImages" :key="index">
-            <div class="relative">
-                <img :src="image" alt="Uploaded Image" class="w-full h-auto border border-gray-300 rounded-lg">
+            <div class="relative" draggable="true" @dragstart="dragStart(index)" @dragover.prevent @drop="drop(index)">
+                <img :src="image" alt="Uploaded Image"
+                    class="w-full h-auto border border-gray-300 rounded-lg">
                 <button @click="removeImage(index)" type="button"
-                    class="absolute p-1 text-white bg-red-600 rounded-full top-2 right-2 hover:bg-red-700">
+                    class="absolute flex items-center justify-center w-6 h-6 pb-0.5 text-2xl text-white bg-red-600 rounded-xl top-2 right-2 hover:bg-red-700">
                     &times;
                 </button>
             </div>
@@ -37,7 +39,7 @@
 <script>
     document.addEventListener('alpine:init', () => {
         Alpine.data('multiImageUploader', () => ({
-            uploadedImages: [],
+            uploadedImages: {{ json_encode($values) }},
 
             updatePreviews(event) {
                 const files = Array.from(event.target.files);
@@ -47,16 +49,31 @@
                         const reader = new FileReader();
 
                         reader.onload = (e) => {
-                            this.uploadedImages.push(e.target.result); // Add the image URL to the array
+                            this.uploadedImages.push(e.target.result);
                         };
 
-                        reader.readAsDataURL(file); // Read the file as Data URL
+                        reader.readAsDataURL(file);
                     }
                 });
             },
 
             removeImage(index) {
-                this.uploadedImages.splice(index, 1); // Remove the image from the array
+                this.uploadedImages.splice(index, 1);
+            },
+
+            dragStart(index) {
+                this.draggedImageIndex = index;
+                document.querySelectorAll('[draggable="true"]')[index].classList.add('dragged');
+            },
+
+            drop(index) {
+                const draggedImage = this.uploadedImages[this.draggedImageIndex];
+                this.uploadedImages.splice(this.draggedImageIndex, 1);
+                this.uploadedImages.splice(index, 0, draggedImage);
+
+                document.querySelectorAll('[draggable="true"]').forEach(el => el.classList.remove('dragged'));
+
+                this.draggedImageIndex = null;
             }
         }));
     });

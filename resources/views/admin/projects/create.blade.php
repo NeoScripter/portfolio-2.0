@@ -17,13 +17,13 @@
         <x-form-field name="title_ru" label="Russian title" />
 
         <x-admin.image-upload
-            label="Project vertical image"
-            input-id="project_image"
-            input-name="project_image"
+            label="Project main image"
+            input-id="image"
+            input-name="image"
         />
 
         <x-admin.image-upload
-            label="Project horizontal image"
+            label="Project featured image"
             input-id="featured_image"
             input-name="featured_image"
         />
@@ -32,9 +32,9 @@
         <x-form-field name="image_alt_fr" label="French featured image alt" />
         <x-form-field name="image_alt_ru" label="Russian featured image alt" />
 
-        <x-form-field name="description_en" :isTextarea=true label="English featured image alt" />
-        <x-form-field name="description_fr" :isTextarea=true label="French featured image alt" />
-        <x-form-field name="description_ru" :isTextarea=true label="Russian featured image alt" />
+        <x-form-field name="description_en" :isTextarea=true label="English main description" />
+        <x-form-field name="description_fr" :isTextarea=true label="French main description" />
+        <x-form-field name="description_ru" :isTextarea=true label="Russian main description" />
 
         <x-admin.checkbox name="is_featured" label="Show on the homepage" />
 
@@ -73,12 +73,13 @@
             placeholder="Этот проект представляет собой..."
             :values="[]"
         />
-{{--
+
         <x-admin.multiple-images
-            label="Project horizontal image"
-            input-id="featured_image"
-            input-name="featured_image"
-        /> --}}
+            label="Project images"
+            input-id="image_content"
+            input-name="image_content"
+            :values="[]"
+        />
 
         <x-admin.array-field
             field-name="image_content_alt_en"
@@ -104,8 +105,9 @@
             :values="[]"
         />
 
-        <!-- Submit Button -->
-        <div class="flex items-center gap-4">
+        <hr>
+
+        <div class="flex items-center gap-4 pt-2">
             <x-admin.primary-button>{{ __('Create') }}</x-admin.primary-button>
         </div>
     </form>

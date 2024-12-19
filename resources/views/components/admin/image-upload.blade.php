@@ -1,13 +1,13 @@
-<div x-data="imageUploader">
+<div x-data="imageUploader({{ json_encode($value ?? null) }})">
     <p class="block mb-1 text-sm font-medium text-gray-700">{{ $label }}</p>
 
-    @isset($imagePath)
+   {{--  @isset($value)
         <div>
             <figure class="relative max-w-sm mb-1">
-                <img class="rounded-lg" src="{{ Storage::url($imagePath) }}" alt="{{ $altText ?? 'Image' }}">
+                <img class="rounded-lg" src="{{ Storage::url($value) }}" alt="{{ $altText ?? 'Image' }}">
             </figure>
         </div>
-    @endisset
+    @endisset --}}
 
     <div class="flex items-center justify-start w-full">
         <label for="{{ $inputId }}"
@@ -32,8 +32,8 @@
 
     <script>
         document.addEventListener('alpine:init', () => {
-        Alpine.data('imageUploader', () => ({
-            uploadedImage: null,
+            Alpine.data('imageUploader', (initialValue = null) => ({
+                uploadedImage: initialValue,
 
             updatePreview(event) {
                 const file = event.target.files[0];

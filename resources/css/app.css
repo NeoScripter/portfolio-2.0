@@ -263,6 +263,19 @@ details[open]::details-content {
     }
 }
 
+[draggable="true"] {
+    cursor: grab;
+}
+
+[draggable="true"]:active {
+    cursor: grabbing;
+}
+
+.dragged {
+    opacity: 1;
+    border: 2px dashed #4A90E2;
+}
+
 [x-cloak] {
     display: none !important;
 }
