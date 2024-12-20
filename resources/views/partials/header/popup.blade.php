@@ -1,7 +1,8 @@
 <div x-show="showPopup" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="translate-x-full"
     x-transition:enter-end="translate-x-0" x-transition:leave="transition ease-in duration-500"
     x-transition:leave-start="translate-x-0" x-transition:leave-end="translate-x-full" @click.away="showPopup=false"
-    x-cloak class="absolute top-0 right-0 z-30 p-4 bg-white shadow-xl w-80 md:hidden">
+    x-cloak id="mobile-menu" role="dialog" aria-labelledby="mobile-menu-title" aria-modal="true"
+    class="absolute top-0 right-0 z-30 p-4 bg-white shadow-xl w-80 md:hidden">
 
     <div class="flex items-center justify-between gap-2">
 
@@ -9,22 +10,26 @@
             <x-user.select-lang :is_black=false />
         </div>
 
-        <button @click="showPopup = false" class="w-10 mb-4 text-3xl text-black">&times</button>
+        <button @click="showPopup = false" class="w-10 mb-4 text-3xl text-black" aria-label="Close menu">&times</button>
 
     </div>
 
     <div>
+        <h2 id="mobile-menu-title" class="sr-only">Mobile Navigation Menu</h2>
         <img src="{{ asset('images/partials/logo.webp') }}" alt="Byte Engine logo" class="w-20 h-20 mb-4">
         <div class="mb-2 font-serif text-lg font-normal tracking-[5px] uppercase">Web Development</div>
         <div class="text-2xl uppercase tracking-[2px]">Byte Engine</div>
     </div>
 
-    <nav class="mt-6">
+    <nav class="mt-6" aria-label="Mobile Navigation">
         <ul class="space-y-6 text-sm tracking-widest uppercase">
-            <li><a href="/" class="transition-colors duration-300 hover:text-gray-500" wire:navigate.hover>Home</a>
+            <li><a href="/" class="transition-colors duration-300 hover:text-gray-500"
+                    wire:navigate.hover>Home</a>
             </li>
-            <li><a href="/portfolio" class="transition-colors duration-300 hover:text-gray-500" wire:navigate.hover>Portfolio</a></li>
-            <li><a href="/services" class="transition-colors duration-300 hover:text-gray-500" wire:navigate.hover>Services</a></li>
+            <li><a href="/portfolio" class="transition-colors duration-300 hover:text-gray-500"
+                    wire:navigate.hover>Portfolio</a></li>
+            <li><a href="/services" class="transition-colors duration-300 hover:text-gray-500"
+                    wire:navigate.hover>Services</a></li>
             <li><a href="/about" class="transition-colors duration-300 hover:text-gray-500" wire:navigate.hover>About
                     me</a></li>
         </ul>

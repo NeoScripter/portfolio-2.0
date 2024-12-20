@@ -8,38 +8,34 @@
     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
         <tr>
             <th scope="col" class="px-6 py-3">
-                IP Address
+                Today
             </th>
             <th scope="col" class="px-6 py-3">
-                Method
+                Last week
             </th>
             <th scope="col" class="px-6 py-3">
-                URL
+                Last month
             </th>
             <th scope="col" class="px-6 py-3">
-                Visited At
+                All
             </th>
         </tr>
     </thead>
     <tbody>
-        @foreach ($visitors as $visitor)
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                <th scope="row"
-                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    {{ $visitor->ip_address }}
-                </th>
-                <td class="px-6 py-4">
-                    {{ $visitor->method }}
-                </td>
-                <td class="px-6 py-4">
-                    {{ $visitor->url }}
-                </td>
-                <td class="px-6 py-4">
-                    {{ $visitor->visited_at }}
-                </td>
-            </tr>
-        @endforeach
+        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                {{ $visitors->all_time }}
+            </th>
+            <td class="px-6 py-4">
+                {{ $visitors->today }}
+            </td>
+            <td class="px-6 py-4">
+                {{ $visitors->last_week }}
+            </td>
+            <td class="px-6 py-4">
+                {{ $visitors->last_month }}
+            </td>
+        </tr>
     </tbody>
 
-    {{ $visitors->links() }}
 </table>

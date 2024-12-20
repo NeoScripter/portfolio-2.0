@@ -1,11 +1,11 @@
 <div class="pb-12 space-y-12 sm:space-y-16 md:space-y-20 md:pb-16">
 
-    <section>
+    <section aria-labelledby="section-title" >
 
         <div
             class="relative flex items-end gap-4 px-4 pt-12 md:px-10 sm:items-center h-60 xs:h-80 sm:h-120 md:h-160 bg-black/30 after:absolute after:inset-0 after:-z-20 after:bg-black">
             <div class="w-1/2 p-2 text-white md:w-4/5 md:p-4 bg-black/50">
-                <span class="block mb-2 italic tracking-widest xs:text-lg md:text-xl md:mb-3">Byte Engine</span>
+                <span id="section-title" class="block mb-2 italic tracking-widest xs:text-lg md:text-xl md:mb-3">Byte Engine</span>
                 <h1
                     class="mb-5 text-lg font-light tracking-widest uppercase xs:text-2xl sm:text-3xl md:text-5xl text-balance font-main">
                     Elegant and performant websites</h1>
@@ -15,17 +15,19 @@
                         Hi there! I'm Ilya, a passionate web developer who creates high-quality, fast, and scalable apps
                         with appealing UI.</p>
                     <div class="flex gap-5 text-sm font-bold uppercase font-main md:gap-7">
-                        <a href=""
-                            class="block tracking-widest underline transition-colors duration-300 underline-offset-4 w-max hover:text-gray-400">
+                        <a href="https://wa.me/639504643591" target="_blank"
+                            class="block tracking-widest underline transition-colors duration-300 underline-offset-4 w-max hover:text-gray-400"
+                            aria-label="Contact me on WhatsApp at +63 950 464 35 91">
                             +63 950 464 35 91</a>
-                        <a href=""
-                            class="block tracking-widest underline transition-colors duration-300 underline-offset-4 w-max hover:text-gray-400">more
+                        <a href="/about"
+                            class="block tracking-widest underline transition-colors duration-300 underline-offset-4 w-max hover:text-gray-400" aria-label="Learn more about me" wire:navigate.hover>more
                             about
                             me</a>
-                        <a href=""
-                            class="block tracking-widest underline transition-colors duration-300 underline-offset-4 w-max hover:text-gray-400">
+                        <button
+                            aria-label="Hire me for your project"
+                            class="block tracking-widest underline uppercase transition-colors duration-300 underline-offset-4 w-max hover:text-gray-400">
                             Hire
-                            me</a>
+                            me</button>
                     </div>
                 </div>
             </div>
@@ -38,31 +40,35 @@
                 Hi there! I'm Ilya, a passionate web developer who creates high-quality, fast, and scalable apps
                 with appealing UI.</p>
             <div class="pt-3 space-y-3 text-xs uppercase border-t border-gray-300 font-main">
-                <a href=""
-                    class="block mx-auto tracking-widest underline transition-colors duration-300 underline-offset-4 w-max hover:text-gray-400">
+                <a href="https://wa.me/639504643591" target="_blank"
+                    class="block mx-auto tracking-widest underline transition-colors duration-300 underline-offset-4 w-max hover:text-gray-400"
+                    aria-label="Contact me on WhatsApp at +63 950 464 35 91">
                     +63 950 464 35 91</a>
-                <a href=""
-                    class="block mx-auto tracking-widest underline transition-colors duration-300 underline-offset-4 w-max hover:text-gray-400">more
+                <a href="/about"
+                    class="block mx-auto tracking-widest underline transition-colors duration-300 underline-offset-4 w-max hover:text-gray-400" aria-label="Learn more about me" wire:navigate.hover>more
                     about me</a>
-                <a href=""
+                <button
+                    aria-label="Hire me for your project"
                     class="block mx-auto tracking-widest underline transition-colors duration-300 underline-offset-4 w-max hover:text-gray-400">
                     Hire
-                    me</a>
+                    me</button>
             </div>
         </div>
 
     </section>
 
-    <section class="px-5 select-none xs:px-10">
+    <section class="px-5 select-none xs:px-10" aria-labelledby="tech-stack-title">
 
         <h2
+        id="tech-stack-title"
         class="mb-2 text-lg font-thin tracking-widest text-center uppercase sm:mb-5 md:pt-14 font-main xs:text-2xl md:text-3xl lg:text-4xl">
         Tech stack</h2>
 
         <p class="w-4/5 mx-auto mb-5 text-center sm:mb-10 md:mb-12 xs:text-lg md:text-xl lg:text-2xl">Techonologies that I use</p>
 
         <div
-            class="grid max-w-6xl gap-4 mx-auto mb-12 tracking-widest sm:mb-16 md:mb-24 xs:gap-6 grid-cols-auto-fit-120 sm:gap-8">
+            class="grid max-w-6xl gap-4 mx-auto mb-12 tracking-widest sm:mb-16 md:mb-24 xs:gap-6 grid-cols-auto-fit-120 sm:gap-8"
+            aria-label="List of technologies used">
 
             @php
                 $content = ['React', 'PHP', 'Rust', 'SQL', 'Laravel', 'Typescript', 'WordPress'];
@@ -81,8 +87,9 @@
 
         </div>
 
-        <div class="max-w-4xl px-10 py-8 mx-auto text-white md:max-w-screen-3xl sm:py-12 md:py-16 sm:px-16 bg-black-primary">
+        <div class="max-w-4xl px-10 py-8 mx-auto text-white md:max-w-screen-3xl sm:py-12 md:py-16 sm:px-16 bg-black-primary" aria-labelledby="crafting-title">
             <h2
+                id="crafting-title"
                 class="mb-4 text-lg font-medium tracking-widest uppercase md:mb-8 md:text-center md:w-2/3 md:mx-auto sm:mb-6 xs:text-2xl md:text-3xl lg:text-4xl text-balance font-main">
                 crafting unique and bespoke websites with excellent quality</h2>
 
@@ -111,8 +118,9 @@
 
 
     @isset($services)
-        <section>
+        <section aria-labelledby="services-title">
             <h2
+                id="services-title"
                 class="mb-2 text-lg font-thin tracking-widest text-center uppercase md:pt-14 sm:mb-5 font-main xs:text-2xl md:text-3xl lg:text-4xl">
                 Services and prices</h2>
 
@@ -136,15 +144,16 @@
     @endisset
 
     @isset($reviews)
-        <section>
+        <section aria-labelledby="reviews-title">
             <h2
+                id="reviews-title"
                 class="mb-2 text-lg font-thin tracking-widest text-center uppercase sm:mb-5 md:pt-14 font-main xs:text-2xl md:text-3xl lg:text-4xl">
                 Clients' feedback</h2>
 
             <p class="w-4/5 mx-auto mb-5 text-center sm:mb-12 md:mb-20 xs:text-lg md:text-xl lg:text-2xl">Full list of
                 services that I provide for the clients and that they enjoy a lot</p>
 
-            <div class="px-40 pb-2 select-none sm:px-20">
+            <div class="px-40 pb-2 select-none sm:px-20" aria-labelledby="reviews-title">
 
                 @php
                     $top_map = [[50, 85], [10, 50], [10, 50], [50, 85]];
@@ -152,7 +161,8 @@
                     $index = 0;
                 @endphp
 
-                <div class="relative h-160">
+                <div class="relative h-160" role="list"
+                aria-label="Client reviews">
                     @foreach ($reviews as $review)
                         @php
                             $image = $review['image'] === null ? null : $review['image'];
@@ -191,7 +201,7 @@
                         <p class="text-sm sm:text-base md:text-xl">Ilya Andreev</p>
                     </div>
                     <div class="w-16 mr-6 h-18 sm:w-20 sm:h-22 md:w-24 md:h-26">
-                        <img src="{{ asset('images/home/img-quote.jpg') }}" alt=""
+                        <img src="{{ asset('images/home/img-quote.jpg') }}" alt="English:a man with short hair and glasses, wearing a patterned shirt and sitting in a chair. Русский: фото мужчины с короткими волосами и очками, в рубашке с узором, сидящего в кресле."
                             class="object-cover object-center w-full h-full rounded-xl">
                     </div>
                 </div>

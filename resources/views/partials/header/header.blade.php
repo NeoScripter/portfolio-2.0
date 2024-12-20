@@ -5,9 +5,10 @@
 
     <div class="flex-1 hidden gap-3 px-4 py-2 ml-4 border-l border-gray-400 sm:flex sm:justify-between">
         <div class="pl-8">
-            <div class="tracking-[4px] text-lg md:text-2xl font-thin font-main mb-3">WEB DEVELOPMENT BYTE ENGINE
+            <h1 class="sr-only">Byte Engine - Web Development</h1>
+            <div class="tracking-[4px] text-lg md:text-2xl font-thin font-main mb-3" aria-hidden="true">WEB DEVELOPMENT BYTE ENGINE
             </div>
-            <nav>
+            <nav aria-label="Primary">
                 <ul class="flex items-center gap-6 text-sm font-bold tracking-widest uppercase md:gap-10">
                     <li><a href="/" class="transition-colors duration-300 hover:text-gray-500"
                             wire:navigate.hover>Home</a>
@@ -33,7 +34,9 @@
         </div>
     </div>
 
-    <button @click="showPopup = true" class="w-8 h-8 group sm:hidden">
+    <button @click="showPopup = true" class="w-8 h-8 group sm:hidden" aria-controls="mobile-menu"
+    :aria-expanded="!showPopup"
+    aria-label="Open menu">
         <span class="block w-full h-0.5 bg-black group-hover:bg-gray-500"></span>
         <span class="block w-full h-0.5 mt-1.5 bg-black group-hover:bg-gray-500"></span>
         <span class="block w-full h-0.5 mt-1.5 bg-black group-hover:bg-gray-500"></span>
