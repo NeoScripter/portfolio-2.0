@@ -15,10 +15,11 @@ class HomePage extends Component
     public $reviews;
 
     public function mount() {
-        $this->projects = Project::where('is_featured', true)->select(['id', 'featured_image', 'image_alt_en', 'image_alt_fr', 'image_alt_ru', 'title_en', 'title_fr', 'title_ru', 'description_en', 'description_fr', 'description_ru'])->latest()->limit(9)->get()->map(function ($project, $index) {
+        $this->projects = Project::where('is_featured', true)->select(['id', 'featured_image_small', 'featured_image_tiny', 'image_alt_' . app()->getLocale(), 'title_' . app()->getLocale(), 'description_' . app()->getLocale()])->latest()->limit(9)->get()->map(function ($project, $index) {
             return [
                 'index' => $index,
-                'image' => Storage::url($project->featured_image),
+                'image' => Storage::url($project->featured_image_small),
+                'image_tiny' => Storage::url($project->featured_image_tiny),
                 'image_alt' => $project->{'image_alt_' . app()->getLocale()},
                 'title' => $project->{'title_' . app()->getLocale()},
                 'desc' => Str::words($project->{'description_' . app()->getLocale()}, 25),
@@ -33,6 +34,8 @@ class HomePage extends Component
 
     public function render()
     {
+        $this->dispatch('load-images');
+
         return view('livewire.pages.user.home');
     }
 }

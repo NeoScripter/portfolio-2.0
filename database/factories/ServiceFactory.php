@@ -20,6 +20,15 @@ class ServiceFactory extends Factory
             'image' => collect(glob(storage_path('app/public/services/*.*')))
             ->map(fn($path) => 'services/' . basename($path))
             ->random(),
+            'image_medium' => collect(glob(storage_path('app/public/services/medium/*.*')))
+            ->map(fn($path) => 'services/medium/' . basename($path))
+            ->random(),
+            'image_small' => collect(glob(storage_path('app/public/services/small/*.*')))
+            ->map(fn($path) => 'services/small/' . basename($path))
+            ->random(),
+            'image_tiny' => collect(glob(storage_path('app/public/services/tiny/*.*')))
+            ->map(fn($path) => 'services/tiny/' . basename($path))
+            ->random(),
             'title_en' => $this->faker->words(3, true),
             'title_fr' => $this->faker->words(3, true),
             'title_ru' => $this->faker->words(3, true),

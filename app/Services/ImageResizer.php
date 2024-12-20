@@ -12,8 +12,8 @@ class ImageResizer
      * Image sizes for resizing.
      */
     public const SIZES = [
-        'small' => 350,
-        'medium' => 700,
+        'small' => 400,
+        'medium' => 800,
         'tiny' => 20,
     ];
 

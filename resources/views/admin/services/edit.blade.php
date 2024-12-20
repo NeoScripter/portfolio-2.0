@@ -85,7 +85,7 @@
                 </div>
             </form>
 
-            {{-- <script>
+            <script>
                 document.addEventListener('DOMContentLoaded', function () {
                     const firstError = document.querySelector('.text-red-600');
                     if (firstError) {
@@ -93,7 +93,7 @@
                         firstError.focus();
                     }
                 });
-            </script> --}}
+            </script>
         </x-admin.modal>
     @endif
 

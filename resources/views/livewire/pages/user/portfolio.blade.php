@@ -13,10 +13,10 @@
 
                 @foreach ($projects as $index => $project)
                     <article class="flex flex-col items-center gap-10 sm:items-start sm:flex-row">
-                        <div class="xs:h-160 sm:h-auto md:h-160 sm:flex-1 {{ $index % 2 === 0 ? 'sm:order-2' : '' }}">
-                            <img src="{{ Storage::url($project->featured_image) }}"
+                        <div class="xs:h-160 sm:h-auto md:h-160 sm:flex-1 image-loading {{ $index % 2 === 0 ? 'sm:order-2' : '' }}" style="background-image: url('{{  Storage::url($project->featured_image_tiny) }}');">
+                            <img src="{{ Storage::url($project->featured_image_medium) }}"
                                 alt="{{ $project->{'image_alt_' . app()->getLocale()} }}"
-                                class="object-cover object-top w-full h-full">
+                                class="object-cover object-top w-full h-full" loading="lazy">
                         </div>
 
 

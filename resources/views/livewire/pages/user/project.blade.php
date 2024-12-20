@@ -26,13 +26,13 @@
                     @endisset
                 </div>
 
-                <figure class="relative mx-auto mb-6 sm:mb-10 md:mb-14">
+                <figure class="relative mx-auto mb-6 sm:mb-10 md:mb-14 image-loading" style="background-image: url('{{  Storage::url($project->image_tiny) }}');">
                     <div
                         class="absolute inset-0 z-10 bg-black bg-opacity-10 bg-gradient-to-t from-black to-transparent via-black/10">
                     </div>
                     <img src="{{ Storage::url($project->image) }}"
                         alt="{{ $project->{'image_alt_' . app()->getLocale()} }}"
-                        class="object-cover object-top w-full h-full">
+                        class="object-cover object-top w-full h-full" loading="lazy">
                     <figcaption class="sr-only">
                         {{ $project->{'image_alt_' . app()->getLocale()} ?? 'No description available' }}</figcaption>
                 </figure>
@@ -55,6 +55,7 @@
                 @endphp
 
 
+
             @isset($texts)
                 @foreach ($texts as $index => $image)
                     <div class="font-serif text-lg text-center md:text-xl text-balance">
@@ -62,8 +63,8 @@
                     </div>
 
                     @isset($images[$index])
-                        <figure class="max-w-screen-sm mx-auto ">
-                            <img src="{{ Storage::url($images[$index]) }}" alt="{{ $image_alts[$index] ?? '' }}"
+                        <figure class="max-w-screen-sm mx-auto image-loading" style="background-image: url('{{ Storage::url($images[$index]["tiny"]) }}');">
+                            <img src="{{ Storage::url($images[$index]['original']) }}" alt="{{ $image_alts[$index] ?? '' }}"
                                 class="object-cover object-top w-full h-full rounded-xl" loading="lazy">
                             <figcaption class="sr-only">{{ $image_alts[$index] ?? 'No description available' }}</figcaption>
                         </figure>

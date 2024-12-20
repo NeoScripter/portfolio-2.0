@@ -279,3 +279,45 @@ details[open]::details-content {
 [x-cloak] {
     display: none !important;
 }
+
+.image-loading.image-loaded > img {
+    opacity: 1;
+    transition: all 0.5s ease;
+}
+
+.image-loading > img {
+    opacity: 0;
+}
+
+.image-loading {
+    position: relative;
+    overflow: hidden;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.image-loading::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    animation: pulse 2s infinite;
+}
+
+.image-loading.image-loaded::before {
+    content: none;
+}
+
+@keyframes pulse {
+    0% {
+        background-color: rgba(255,255,255,0);
+    }
+
+    50% {
+        background-color: rgba(255,255,255,0.15);
+    }
+
+    100% {
+        background-color: rgba(255,255,255,0);
+    }
+}

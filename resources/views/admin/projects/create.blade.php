@@ -115,7 +115,7 @@
         </div>
     </form>
 
-   {{--  <script>
+    <script>
         document.addEventListener('alpine:init', function () {
             const firstError = document.querySelector('.text-red-600');
             if (firstError) {
@@ -123,5 +123,5 @@
                 firstError.focus();
             }
         });
-    </script> --}}
+    </script>
 </section>

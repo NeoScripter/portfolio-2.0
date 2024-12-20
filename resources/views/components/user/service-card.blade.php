@@ -1,9 +1,9 @@
 @props(['id', 'image' => '', 'image_medium' => '', 'image_small' => '', 'image_tiny' => '', 'alt' => '', 'title' => '', 'deadline' => '', 'desc' => '', 'price' => 0])
 
 <article role="region" aria-labelledby="service-title-{{ $id }}" class="flex flex-col space-y-2 shadow-xl">
-    <div class="overflow-hidden h-80">
-        <img src="{{ Storage::url($image) }}" alt="{{ $alt }}"
-            class="object-cover object-center w-full h-full transition-transform duration-500 hover:scale-110" loading="lazy">
+    <div class="overflow-hidden h-80 image-loading" style="background-image: url('{{  Storage::url($image_tiny) }}');">
+        <img src="{{ Storage::url($image_medium) }}" alt="{{ $alt }}"
+            class="object-cover object-center w-full h-full transition-all duration-500 hover:scale-110" loading="lazy">
     </div>
 
     <div class="flex flex-col gap-2 p-6 pt-2 tracking-widest sm:pb-8 basis-2/3">

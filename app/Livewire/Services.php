@@ -18,6 +18,8 @@ class Services extends Component
 
     public function render()
     {
+        $this->dispatch('load-images');
+
         return view('livewire.pages.user.services', [
             'services' => Service::paginate(4),
         ]);
