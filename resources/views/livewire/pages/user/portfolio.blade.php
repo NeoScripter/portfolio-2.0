@@ -1,14 +1,43 @@
 <div class="pb-12 space-y-12 sm:space-y-16 md:space-y-20 md:pb-16">
 
-    @isset($projects)
-        <section aria-labelledby="projects">
-            <h2 id="projects"
-                class="mb-2 text-lg font-thin tracking-widest text-center uppercase md:pt-14 sm:mb-5 font-main xs:text-2xl md:text-3xl lg:text-4xl">
-                My portfolio pieces</h2>
 
-            <p class="w-3/5 mx-auto mb-12 text-center sm:mb-20 md:mb-28 xs:text-lg md:text-xl lg:text-2xl">Here are my
-                portfolio pieces</p>
+    <section aria-labelledby="projects">
+        <h2 id="projects"
+            class="mb-2 text-lg font-thin tracking-widest text-center uppercase md:pt-14 sm:mb-5 font-main xs:text-2xl md:text-3xl lg:text-4xl">
+            My portfolio pieces</h2>
 
+        <p class="w-3/5 mx-auto mb-6 text-center sm:mb-10 md:mb-14 xs:text-lg md:text-xl lg:text-2xl">Here are my
+            portfolio pieces</p>
+
+        <div class="mx-auto mb-6 sm:max-w-screen-md sm:mb-10 md:mb-14">
+            <form wire:submit.prevent class="flex items-center max-w-md mx-auto">
+                <label for="simple-search" class="sr-only">Search</label>
+                <div class="relative w-full">
+                    <div class="absolute inset-y-0 flex items-center pointer-events-none start-0 ps-3">
+                        <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 5v10M3 5a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 10a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm12 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm0 0V6a3 3 0 0 0-3-3H9m1.5-2-2 2 2 2" />
+                        </svg>
+                    </div>
+                    <input type="text" id="simple-search"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-sm focus:ring-black-primary focus:border-black-primary block w-full ps-10 p-2.5"
+                        placeholder="Search project stack..."
+                        wire:model.live.debounce="searchText" />
+                </div>
+                <button type="submit"
+                    class="p-2.5 ms-2 text-sm font-medium text-white bg-black-primary rounded-md border border-black-primary hover:bg-black-primary focus:ring-4 focus:outline-none focus:ring-black-primary">
+                    <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 20 20">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                    </svg>
+                    <span class="sr-only">Search</span>
+                </button>
+            </form>
+        </div>
+
+        @isset($projects)
             <div class="grid gap-20 px-8 mx-auto sm:gap-32 sm:px-10 sm:max-w-screen-md">
 
                 @foreach ($projects as $index => $project)
@@ -50,13 +79,14 @@
                 @endforeach
 
             </div>
+        @endisset
 
-            <div class="px-10 mx-auto my-14 md:my-24 sm:max-w-screen-lg">
-                {{ $projects->links('pagination::tailwind', ['scrollTo' => true]) }}
-            </div>
+        <div class="px-10 mx-auto my-14 md:my-24 sm:max-w-screen-lg">
+            {{ $projects->links('pagination::tailwind', ['scrollTo' => true]) }}
+        </div>
 
-            <x-user.call-bar />
-        </section>
-    @endisset
+        <x-user.call-bar />
+    </section>
+
 
 </div>

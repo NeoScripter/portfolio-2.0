@@ -21,7 +21,7 @@ class Services extends Component
         $this->dispatch('load-images');
 
         return view('livewire.pages.user.services', [
-            'services' => Service::paginate(4),
+            'services' => Service::orderBy('priority', 'desc')->paginate(4),
         ]);
 
     }
