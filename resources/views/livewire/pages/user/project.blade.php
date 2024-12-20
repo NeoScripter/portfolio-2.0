@@ -26,13 +26,20 @@
                     @endisset
                 </div>
 
-                <figure class="relative mx-auto mb-6 sm:mb-10 md:mb-14 image-loading" style="background-image: url('{{  Storage::url($project->image_tiny) }}');">
+                <figure class="relative mx-auto mb-6 sm:mb-10 md:mb-14 image-loading"
+                    style="background-image: url('{{ Storage::url($project->image_tiny) }}');">
                     <div
                         class="absolute inset-0 z-10 bg-black bg-opacity-10 bg-gradient-to-t from-black to-transparent via-black/10">
                     </div>
-                    <img src="{{ Storage::url($project->image) }}"
+                    <img loading="lazy" src="{{ Storage::url($project->image) }}"
                         alt="{{ $project->{'image_alt_' . app()->getLocale()} }}"
-                        class="object-cover object-top w-full h-full" loading="lazy">
+                        class="object-cover object-top w-full h-full"
+                        sizes="(min-width: 90rem) 90rem, (min-width: 75rem) 75rem, (min-width: 48rem) 45rem, 24rem"
+                        srcset="{{ Storage::url($project->image_small) }} 400w,
+                                        {{ Storage::url($project->image_medium) }} 720w,
+                                        {{ Storage::url($project->image) }} 1200w">
+
+
                     <figcaption class="sr-only">
                         {{ $project->{'image_alt_' . app()->getLocale()} ?? 'No description available' }}</figcaption>
                 </figure>
@@ -56,21 +63,28 @@
 
 
 
-            @isset($texts)
-                @foreach ($texts as $index => $image)
-                    <div class="font-serif text-lg text-center md:text-xl text-balance">
-                        {{ $texts[$index] }}
-                    </div>
+                @isset($texts)
+                    @foreach ($texts as $index => $image)
+                        <div class="font-serif text-lg text-center md:text-xl text-balance">
+                            {{ $texts[$index] }}
+                        </div>
 
-                    @isset($images[$index])
-                        <figure class="max-w-screen-sm mx-auto image-loading" style="background-image: url('{{ Storage::url($images[$index]["tiny"]) }}');">
-                            <img src="{{ Storage::url($images[$index]['original']) }}" alt="{{ $image_alts[$index] ?? '' }}"
-                                class="object-cover object-top w-full h-full rounded-xl" loading="lazy">
-                            <figcaption class="sr-only">{{ $image_alts[$index] ?? 'No description available' }}</figcaption>
-                        </figure>
-                    @endisset
-                @endforeach
-            @endisset
+                        @isset($images[$index])
+                            <figure class="max-w-screen-sm mx-auto image-loading"
+                                style="background-image: url('{{ Storage::url($images[$index]['tiny']) }}');">
+                                <img loading="lazy" src="{{ Storage::url($images[$index]['original']) }}"
+                                    alt="{{ $image_alts[$index] ?? '' }}"
+                                    class="object-cover object-top w-full h-full rounded-xl"
+                                    sizes="(min-width: 90rem) 45rem, (min-width: 75rem) 45rem, (min-width: 48rem) 45rem, 24rem"
+                                    srcset="{{ Storage::url($images[$index]['small']) }} 400w,
+                                        {{ Storage::url($images[$index]['medium']) }} 720w,
+                                        {{ Storage::url($images[$index]['original']) }} 1200w">
+
+                                <figcaption class="sr-only">{{ $image_alts[$index] ?? 'No description available' }}</figcaption>
+                            </figure>
+                        @endisset
+                    @endforeach
+                @endisset
 
             </div>
 
