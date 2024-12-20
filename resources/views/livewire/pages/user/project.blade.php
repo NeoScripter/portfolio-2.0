@@ -30,7 +30,7 @@
                     <div
                         class="absolute inset-0 z-10 bg-black bg-opacity-10 bg-gradient-to-t from-black to-transparent via-black/10">
                     </div>
-                    <img src="{{ Storage::url($project->image_tiny) }}"
+                    <img src="{{ Storage::url($project->image) }}"
                         alt="{{ $project->{'image_alt_' . app()->getLocale()} }}"
                         class="object-cover object-top w-full h-full">
                     <figcaption class="sr-only">
@@ -63,7 +63,7 @@
 
                     @isset($images[$index])
                         <figure class="max-w-screen-sm mx-auto ">
-                            <img src="{{ Storage::url($images[$index]['tiny']) }}" alt="{{ $image_alts[$index] ?? '' }}"
+                            <img src="{{ Storage::url($images[$index]) }}" alt="{{ $image_alts[$index] ?? '' }}"
                                 class="object-cover object-top w-full h-full rounded-xl" loading="lazy">
                             <figcaption class="sr-only">{{ $image_alts[$index] ?? 'No description available' }}</figcaption>
                         </figure>

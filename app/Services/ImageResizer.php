@@ -40,7 +40,12 @@ class ImageResizer
             foreach (self::SIZES as $sizeName => $width) {
                 $image = Image::read($originalImage);
                 $resizedImage = $image->scale(width: $width)->toWebp(75);
-                $path = "{$directory}/{$sizeName}/" . pathinfo($filename, PATHINFO_FILENAME) . ".webp";
+
+                $path = "{$directory}/{$sizeName}/" . pathinfo($filename, PATHINFO_FILENAME) . ".webp";               $directoryPath = "public/{$directory}/{$sizeName}";
+
+                if (!Storage::exists($directoryPath)) {
+                    Storage::makeDirectory($directoryPath);
+                }
                 $resizedImage->save(Storage::path("public/{$path}"));
 
                 if ($sizeName === 'small') $imageSmall = $path;
@@ -86,8 +91,13 @@ class ImageResizer
 
         foreach (self::SIZES as $sizeName => $width) {
             $image = Image::read($originalImage);
-            $resizedImage = $image->scale(width: $width)->toWebp();
-            $path = "{$directory}/{$sizeName}/" . pathinfo($filename, PATHINFO_FILENAME) . ".webp";
+            $resizedImage = $image->scale(width: $width)->toWebp(75);
+
+            $path = "{$directory}/{$sizeName}/" . pathinfo($filename, PATHINFO_FILENAME) . ".webp";               $directoryPath = "public/{$directory}/{$sizeName}";
+
+            if (!Storage::exists($directoryPath)) {
+                Storage::makeDirectory($directoryPath);
+            }
             $resizedImage->save(Storage::path("public/{$path}"));
 
             if ($sizeName === 'small') $imageSmall = $path;
@@ -119,7 +129,13 @@ class ImageResizer
                     ->toWebp(75);
 
                 $filename = time() . '_' . uniqid() . '.' . pathinfo($originalPath, PATHINFO_FILENAME) . ".webp";
+
                 $path = "{$directory}/{$sizeName}/{$filename}";
+                $directoryPath = "public/{$directory}/{$sizeName}";
+
+                if (!Storage::exists($directoryPath)) {
+                    Storage::makeDirectory($directoryPath);
+                }
                 $resizedImage->save(Storage::path("public/{$path}"));
 
                 if ($sizeName === 'small') $imageSmall = $path;
@@ -167,7 +183,13 @@ class ImageResizer
                     ->toWebp(75);
 
                 $filename = time() . '_' . uniqid() . '.' . pathinfo($originalPath, PATHINFO_FILENAME) . ".webp";
+
                 $path = "{$directory}/{$sizeName}/{$filename}";
+                $directoryPath = "public/{$directory}/{$sizeName}";
+
+                if (!Storage::exists($directoryPath)) {
+                    Storage::makeDirectory($directoryPath);
+                }
                 $resizedImage->save(Storage::path("public/{$path}"));
 
                 if ($sizeName === 'small') $imageSmall = $path;

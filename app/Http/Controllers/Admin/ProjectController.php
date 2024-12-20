@@ -36,15 +36,23 @@ class ProjectController extends Controller
     {
         if ($project->image) {
             Storage::disk('public')->delete($project->image);
+            Storage::delete($project->image_small);
+            Storage::delete($project->image_medium);
+            Storage::delete($project->image_tiny);
         }
 
         if ($project->featured_image) {
             Storage::disk('public')->delete($project->featured_image);
+            Storage::delete($project->featured_image_small);
+            Storage::delete($project->featured_image_medium);
+            Storage::delete($project->featured_image_tiny);
         }
 
         if ($project->image_content) {
-            foreach ($project->image_content as $imagePath) {
-                Storage::disk('public')->delete($imagePath);
+            foreach ($project->image_content as $imageSet) {
+                foreach ($imageSet as $key => $path) {
+                    if ($path) Storage::delete($path);
+                }
             }
         }
 

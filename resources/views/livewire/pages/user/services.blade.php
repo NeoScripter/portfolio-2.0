@@ -11,7 +11,7 @@
             <div class="grid gap-6 px-4 mx-auto sm:px-10 sm:max-w-screen-lg xs:gap-10 grid-cols-auto-fit-240 md:grid-cols-4">
 
                 @foreach ($services as $service)
-                    <x-user.service-card :id="$service->id" :image="$service->image" :alt="''" :title="$service->title_en" :deadline="$service->deadline_en"
+                    <x-user.service-card :id="$service->id" :image="$service->image" :image_medium="$service->image_medium" :image_small="$service->image_small" :image_tiny="$service->image_tiny" :alt="''" :title="$service->title_en" :deadline="$service->deadline_en"
                         :desc="Str::words($service->description_en, 40)" :price="$service->min_price" />
                 @endforeach
 

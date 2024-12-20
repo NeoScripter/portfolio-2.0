@@ -1,4 +1,4 @@
-@props(['id', 'image' => '', 'alt' => '', 'title' => '', 'deadline' => '', 'desc' => '', 'price' => 0])
+@props(['id', 'image' => '', 'image_medium' => '', 'image_small' => '', 'image_tiny' => '', 'alt' => '', 'title' => '', 'deadline' => '', 'desc' => '', 'price' => 0])
 
 <article role="region" aria-labelledby="service-title-{{ $id }}" class="flex flex-col space-y-2 shadow-xl">
     <div class="overflow-hidden h-80">

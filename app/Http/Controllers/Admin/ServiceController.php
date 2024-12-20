@@ -6,9 +6,17 @@ use App\Http\Controllers\Controller;
 use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use App\Services\ImageResizer;
 
 class ServiceController extends Controller
 {
+    protected $imageResizer;
+
+    public function __construct(ImageResizer $imageResizer)
+    {
+        $this->imageResizer = $imageResizer;
+    }
+
     public function index(Request $request)
     {
         $search = $request->query('search');
@@ -28,6 +36,9 @@ class ServiceController extends Controller
     {
         if ($service->image) {
             Storage::disk('public')->delete($service->image);
+            Storage::delete($service->image_small);
+            Storage::delete($service->image_medium);
+            Storage::delete($service->image_tiny);
         }
 
         $service->delete();
@@ -64,13 +75,19 @@ class ServiceController extends Controller
             'min_price' => 'nullable|integer|min:1',
         ]);
 
-        $imagePath = null;
+        $directory = 'services';
+
+        $mainImagePaths = null;
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('services', 'public');
+            $fileKey = 'image';
+            $mainImagePaths = $this->imageResizer->handleImageUpload($request, $fileKey, $directory);
         }
 
         Service::create(array_merge($validated, [
-            'image' => $imagePath,
+            'image' => $mainImagePaths['original'],
+            'image_small' => $mainImagePaths['small'],
+            'image_medium' => $mainImagePaths['medium'],
+            'image_tiny' => $mainImagePaths['tiny'],
         ]));
 
         return redirect()->route('admin.services.index')->with([
@@ -97,18 +114,35 @@ class ServiceController extends Controller
             'image_alt_en' => 'nullable|string|max:255',
             'image_alt_fr' => 'nullable|string|max:255',
             'image_alt_ru' => 'nullable|string|max:255',
-            'min_price' => 'nullable|integer|min:1',
+            'min_price' => 'required|integer|min:1',
         ]);
 
+        $directory = 'services';
+
+        $mainImageOriginal = $service->image;
+        $mainImageMedium = $service->image_medium;
+        $mainImageSmall = $service->image_small;
+        $mainImageTiny = $service->image_tiny;
+
         if ($request->hasFile('image')) {
-            if ($service->image) {
-                Storage::disk('public')->delete($service->image);
-            }
-            $service->image = $request->file('image')->store('services', 'public');
+            $fileKey = 'image';
+            $mainImagePaths = $this->imageResizer->handleFileUpdate(
+                $request,
+                $fileKey,
+                $service,
+                $directory
+            );
+            $mainImageOriginal = $mainImagePaths['original'];
+            $mainImageMedium = $mainImagePaths['medium'];
+            $mainImageSmall = $mainImagePaths['small'];
+            $mainImageTiny = $mainImagePaths['tiny'];
         }
 
         $service->update(array_merge($validated, [
-            'image' => $service->image,
+            'image' => $mainImageOriginal,
+            'image_small' => $mainImageSmall,
+            'image_medium' => $mainImageMedium,
+            'image_tiny' => $mainImageTiny,
         ]));
 
         return redirect()->route('admin.services.index')->with([
@@ -118,21 +152,3 @@ class ServiceController extends Controller
     }
 }
 
-
-/*
-$table->string('image')->nullable();
-$table->string('image_alt_en')->nullable();
-$table->string('image_alt_fr')->nullable();
-$table->string('image_alt_ru')->nullable();
-$table->string('title_en');
-$table->string('title_fr');
-$table->string('title_ru');
-$table->string('deadline_en');
-$table->string('deadline_fr');
-$table->string('deadline_ru');
-$table->string('description_en');
-$table->string('description_fr');
-$table->string('description_ru');
-$table->boolean('is_featured')->default(true);
-$table->integer('priority')->default(1);
-$table->integer('min_price')->default(100); */

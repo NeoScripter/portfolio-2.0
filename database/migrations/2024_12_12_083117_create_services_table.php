@@ -14,6 +14,9 @@ return new class extends Migration
         Schema::create('services', function (Blueprint $table) {
             $table->id();
             $table->string('image')->nullable();
+            $table->string('image_medium')->nullable();
+            $table->string('image_small')->nullable();
+            $table->string('image_tiny')->nullable();
             $table->string('image_alt_en')->nullable();
             $table->string('image_alt_fr')->nullable();
             $table->string('image_alt_ru')->nullable();
@@ -26,8 +29,8 @@ return new class extends Migration
             $table->string('description_en');
             $table->string('description_fr');
             $table->string('description_ru');
-            $table->boolean('is_featured')->default(true);
-            $table->integer('priority')->default(1);
+            $table->boolean('is_featured')->default(true)->nullable();
+            $table->integer('priority')->default(1)->nullable();
             $table->integer('min_price')->default(100);
             $table->timestamps();
         });
