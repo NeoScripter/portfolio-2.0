@@ -14,7 +14,13 @@ return new class extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
             $table->string('image')->nullable();
+            $table->string('image_medium')->nullable();
+            $table->string('image_small')->nullable();
+            $table->string('image_tiny')->nullable();
             $table->string('featured_image')->nullable();
+            $table->string('featured_image_medium')->nullable();
+            $table->string('featured_image_small')->nullable();
+            $table->string('featured_image_tiny')->nullable();
             $table->string('image_alt_en')->nullable();
             $table->string('image_alt_fr')->nullable();
             $table->string('image_alt_ru')->nullable();

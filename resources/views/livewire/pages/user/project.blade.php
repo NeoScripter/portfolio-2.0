@@ -7,35 +7,42 @@
                 <div class="px-10 pt-3 mb-4 md:pt-6 sm:mb-6">
 
 
-                    <span class="block mx-auto mt-3 mb-2 italic tracking-widest text-center md:mt-4 md:text-lg sm:mb-4 w-max" aria-hidden="true">Byte Engine</span>
+                    <span class="block mx-auto mt-3 mb-2 italic tracking-widest text-center md:mt-4 md:text-lg sm:mb-4 w-max"
+                        aria-hidden="true">Byte Engine</span>
                     <h2 id="project-title"
                         class="text-2xl font-thin tracking-widest text-center uppercase sm:text-3xl font-main md:text-4xl lg:text-5xl">
                         {{ $project->{'title_' . app()->getLocale()} }}</h2>
                 </div>
-                <div class="flex flex-wrap items-center justify-center max-w-xl gap-2 mx-auto mb-6 sm:gap-4 xs:w-2/3 sm:mb-6 md:mb-8" aria-label="Technology Stack">
+                <div class="flex flex-wrap items-center justify-center max-w-xl gap-2 mx-auto mb-6 sm:gap-4 xs:w-2/3 sm:mb-6 md:mb-8"
+                    aria-label="Technology Stack">
 
-                    @foreach ($project->stack as $item)
-                        <div
-                            class="px-3 py-1 font-bold tracking-widest text-black uppercase bg-gray-100 text-xxs rounded-2xl font-main"
-                            aria-label="Technology: {{ $item }}">
-                            {{ $item }}
-                        </div>
-                    @endforeach
+                    @isset($project->stack)
+                        @foreach ($project->stack as $item)
+                            <div class="px-3 py-1 font-bold tracking-widest text-black uppercase bg-gray-100 text-xxs rounded-2xl font-main"
+                                aria-label="Technology: {{ $item }}">
+                                {{ $item }}
+                            </div>
+                        @endforeach
+                    @endisset
                 </div>
+
                 <figure class="relative mx-auto mb-6 sm:mb-10 md:mb-14">
                     <div
                         class="absolute inset-0 z-10 bg-black bg-opacity-10 bg-gradient-to-t from-black to-transparent via-black/10">
                     </div>
-                    <img src="{{ Storage::url($project->image) }}" alt="{{ $project->{'image_alt_' . app()->getLocale()} }}"
+                    <img src="{{ Storage::url($project->image_tiny) }}"
+                        alt="{{ $project->{'image_alt_' . app()->getLocale()} }}"
                         class="object-cover object-top w-full h-full">
-                    <figcaption class="sr-only">{{ $project->{'image_alt_' . app()->getLocale()} ?? 'No description available' }}</figcaption>
+                    <figcaption class="sr-only">
+                        {{ $project->{'image_alt_' . app()->getLocale()} ?? 'No description available' }}</figcaption>
                 </figure>
 
                 <p
                     class="px-5 mx-auto mb-6 text-lg text-center text-balance sm:px-10 sm:max-w-screen-md sm:mb-10 md:mb-14 md:text-xl">
                     {{ $project->{'description_' . app()->getLocale()} }}</p>
 
-                <x-user.link :is_black=false :url="$project->website_link" aria_label="Visit the project website">Go to the website</x-user.link>
+                <x-user.link :is_black=false :url="$project->website_link" aria_label="Visit the project website">Go to the
+                    website</x-user.link>
             </div>
 
 
@@ -48,6 +55,7 @@
                 @endphp
 
 
+            @isset($texts)
                 @foreach ($texts as $index => $image)
                     <div class="font-serif text-lg text-center md:text-xl text-balance">
                         {{ $texts[$index] }}
@@ -55,12 +63,13 @@
 
                     @isset($images[$index])
                         <figure class="max-w-screen-sm mx-auto ">
-                            <img src="{{ Storage::url($images[$index]) }}" alt="{{ $image_alts[$index] ?? '' }}"
+                            <img src="{{ Storage::url($images[$index]['tiny']) }}" alt="{{ $image_alts[$index] ?? '' }}"
                                 class="object-cover object-top w-full h-full rounded-xl" loading="lazy">
                             <figcaption class="sr-only">{{ $image_alts[$index] ?? 'No description available' }}</figcaption>
                         </figure>
                     @endisset
                 @endforeach
+            @endisset
 
             </div>
 

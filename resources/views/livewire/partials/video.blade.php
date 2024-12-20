@@ -18,6 +18,6 @@
         id="autoVideo"
         class="object-cover object-right-top w-full h-full"
         src="{{ asset('images/home/hero_web.mp4') }}"
-        autoplay muted loop playsinline>
+        autoplay muted loop playsinline disablePictureInPicture tabindex="-1">
  </video>
 </div>

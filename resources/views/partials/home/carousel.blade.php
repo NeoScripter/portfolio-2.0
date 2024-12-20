@@ -94,6 +94,7 @@
                         <span class="block w-10 h-1 mx-auto mb-6 border-t-2 border-black"></span>
                         <p class="block mb-6" x-text="slide.desc"></p>
                         <a :href="slide.link"
+                            :tabindex="expanded ? '0' : '-1'"
                             class="px-10 mt-auto block py-3 mb-4 w-full cursor-pointer text-xxs text-center tracking-[4px] font-bold font-main text-white uppercase bg-black transition-colors duration-300 border border-black hover:bg-white hover:text-black"
                             :aria-label="`View details for ${slide.title}`">
                             Details
