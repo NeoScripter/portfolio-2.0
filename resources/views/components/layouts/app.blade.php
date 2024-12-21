@@ -47,8 +47,6 @@
     <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}">
     <link rel="manifest" href="{{ asset('site.webmanifest') }}">
 
-    <!-- Manifest file for Android users -->
-    <link rel="manifest" href="{{ asset('site.webmanifest') }}">
 
 
     <link rel="canonical" href="{{ url()->current() }}">
@@ -65,8 +63,16 @@
 
         @include('partials.header.header')
 
+        @if (session()->has('success'))
+            <div class="fixed p-4 mb-4 text-green-700 bg-green-200 rounded top-16 left-1/2">
+                {{ session('success') }}
+            </div>
+        @endif
+
         <main>
             {{ $slot }}
+
+            <livewire:webform />
         </main>
 
         @include('partials.footer.footer')

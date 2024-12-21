@@ -9,7 +9,7 @@
                 <h1
                     class="mb-5 text-lg font-light tracking-widest uppercase xs:text-2xl sm:text-3xl md:text-5xl text-balance font-main">
                     Elegant and performant websites</h1>
-                <div class="hidden sm:block">
+                <div class="hidden sm:block" x-data>
                     <p
                         class="mb-4 text-xs font-light tracking-wider uppercase md:mb-7 sm:text-lg md:text-2xl font-main text-balance">
                         Hi there! I'm Ilya, a passionate web developer who creates high-quality, fast, and scalable apps
@@ -24,6 +24,7 @@
                             about
                             me</a>
                         <button
+                            @click="$dispatch('open-form')"
                             aria-label="Hire me for your project"
                             class="block tracking-widest underline uppercase transition-colors duration-300 underline-offset-4 w-max hover:text-gray-400">
                             Hire

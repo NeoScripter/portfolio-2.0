@@ -2,7 +2,7 @@
     <h2 id="footer-title" class="sr-only">Footer Navigation</h2>
 
     <img src="{{ asset('images/partials/logo.webp') }}" alt="Byte Engine logo"
-    class="mx-auto mb-8 sm:mb-10 md:mb-16 w-28 h-28 invert">
+    class="w-32 h-32 mx-auto mb-8 sm:mb-10 md:mb-16 invert">
 
     <nav class="mb-8 sm:mb-16" aria-label="Footer navigation">
         <ul class="grid gap-6 text-white xs:gap-10 sm:grid-cols-4 sm:gap-6">

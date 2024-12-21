@@ -14,7 +14,7 @@ export default {
             fontFamily: {
                 sans: ["Figtree", ...defaultTheme.fontFamily.sans],
                 main: ['Helvetica Neue', ...defaultTheme.fontFamily.sans],
-                serif: ['GaramondMTW04', 'serif', ...defaultTheme.fontFamily.serif],
+                serif: ['GaramondMTW04', 'Garamond', 'serif', ...defaultTheme.fontFamily.serif],
             },
             fontSize: {
                 'xxxs': '0.5rem', // 8px

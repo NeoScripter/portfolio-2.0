@@ -1,7 +1,7 @@
 <header x-data="{ showPopup: false }"
     class="sticky top-0 z-30 flex items-center justify-between gap-4 px-6 py-2 bg-white border-b border-gray-300 font-main sm:justify-start sm:px-8 sm:bg-black-primary sm:text-white">
     <img src="{{ asset('images/partials/logo.webp') }}" alt="Byte Engine logo"
-        class="w-12 h-12 mt-1 sm:invert sm:w-16 sm:h-16">
+        class="w-16 h-16 mt-1 sm:invert sm:w-20 sm:h-20">
 
     <div class="flex-1 hidden gap-3 px-4 py-2 ml-4 border-l border-gray-400 sm:flex sm:justify-between">
         <div class="pl-8">
@@ -28,7 +28,7 @@
                 class="relative pr-1 ml-auto lang-toggle w-max group hover:after:text-gray-400 after:transition-colors ">
                 <x-user.select-lang />
             </div>
-            <x-user.button :is_black="false">
+            <x-user.button :is_black="false" :opensPopup=true>
                 HIRE ME
             </x-user.button>
         </div>

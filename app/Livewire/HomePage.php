@@ -13,6 +13,15 @@ class HomePage extends Component
     public $projects;
     public $services;
     public $reviews;
+    public $showPopup = false;
+
+    public function openForm() {
+        $this->showPopup = true;
+    }
+
+    public function closeForm() {
+        $this->showPopup = false;
+    }
 
     public function mount() {
         $this->projects = Project::where('is_featured', true)->select(['id', 'featured_image_small', 'featured_image_tiny', 'image_alt_' . app()->getLocale(), 'title_' . app()->getLocale(), 'description_' . app()->getLocale()])->latest()->limit(9)->get()->map(function ($project, $index) {

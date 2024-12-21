@@ -14,7 +14,7 @@
         </div>
         <p class="flex-1 block tracking-normal xs:text-lg">{{ $desc }}</p>
         <p aria-label="Price starts from" class="mb-auto font-bold font-main">From USD {{ $price }}</p>
-        <x-user.button aria_label="Hire me for {{ $title }}" :is_black="false" :class="'mt-4 !w-full !border-black-primary'">
+        <x-user.button :opensPopup=true aria_label="Hire me for {{ $title }}" :is_black="false" :class="'mt-4 !w-full !border-black-primary'">
             hire me
         </x-user.button>
     </div>
