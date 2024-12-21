@@ -1,8 +1,10 @@
-<footer class="px-10 bg-black-primary xs:px-20 py-14">
+<footer class="px-10 bg-black-primary xs:px-20 py-14" aria-labelledby="footer-title">
+    <h2 id="footer-title" class="sr-only">Footer Navigation</h2>
+
     <img src="{{ asset('images/partials/logo.webp') }}" alt="Byte Engine logo"
     class="mx-auto mb-8 sm:mb-10 md:mb-16 w-28 h-28 invert">
 
-    <nav class="mb-8 sm:mb-16">
+    <nav class="mb-8 sm:mb-16" aria-label="Footer navigation">
         <ul class="grid gap-6 text-white xs:gap-10 sm:grid-cols-4 sm:gap-6">
             <li>
                 <a href="/" wire:navigate.hover class="block text-lg italic transition-colors duration-300 xs:text-xl md:text-2xl hover:text-gray-400">Home
@@ -30,17 +32,17 @@
     <div class="flex items-center justify-between mb-3 border-b border-gray-500 xs:mb-4">
         <ul class="flex items-center gap-6 py-3 transition-colors xs:py-4 md:gap-8">
             <li>
-                <a href="" class="block w-6 h-6 footer-social">
+                <a href="https://github.com/NeoScripter" target="_blank" class="block w-6 h-6 footer-social" aria-label="Visit my GitHub profile">
                     {!! file_get_contents(public_path('images/partials/github.svg')) !!}
                 </a>
             </li>
             <li>
-                <a href="" class="block w-6 h-6 footer-social">
+                <a href="https://t.me/IlyaA2398" target="_blank" class="block w-6 h-6 footer-social" aria-label="Message me on Telegram">
                     {!! file_get_contents(public_path('images/partials/telegram.svg')) !!}
                 </a>
             </li>
             <li>
-                <a href="" class="block w-6 h-6 footer-social">
+                <a href="https://wa.me/639504643591" target="_blank" class="block w-6 h-6 footer-social" aria-label="Contact me on WhatsApp">
                     {!! file_get_contents(public_path('images/partials/whatsapp.svg')) !!}
                 </a>
             </li>
@@ -52,5 +54,5 @@
     </div>
     </div>
 
-    <p class="text-xs tracking-widest text-gray-400 font-main">©Byte Engine. All Rights Reserved.</p>
+    <p class="text-xs tracking-widest text-gray-400 font-main" aria-label="Copyright notice">©Byte Engine. All Rights Reserved.</p>
 </footer>

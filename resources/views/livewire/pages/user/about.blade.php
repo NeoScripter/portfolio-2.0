@@ -7,7 +7,7 @@
 
         <div class="max-w-screen-sm gap-8 md:gap-12 mx-auto mt-8 md:max-w-[60rem] sm:flex sm:items-start">
             <div class="flex-1 mx-auto mb-8">
-                <img src="{{ asset('images/about/hero.jpg') }}" alt=""
+                <img src="{{ asset('images/about/about.webp') }}" alt=""
                     class="object-cover object-center w-full h-full">
             </div>
             <div class="flex-1">

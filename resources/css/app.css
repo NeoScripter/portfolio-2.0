@@ -213,12 +213,12 @@ details[open]::details-content {
 	block-size: calc-size(auto, size);
 }
 
-.select-field:focus {
+/* .select-field:focus {
     outline: none !important;
     border: none !important;
     box-shadow: none;
 }
-
+ */
 .select-field::-ms-expand {
     display: none;
 }

@@ -19,8 +19,8 @@
                         </div>
                         @if ($service->image)
                             <div>
-                                <figure class="relative max-w-sm mb-1">
-                                    <img class="rounded-lg max-w-48" src="{{ Storage::url($service->image) }}"
+                                <figure class="relative mb-1 max-w-120">
+                                    <img class="rounded-lg" src="{{ Storage::url($service->image) }}"
                                         alt="service's image">
                                 </figure>
                             </div>

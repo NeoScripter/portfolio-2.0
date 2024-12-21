@@ -16,6 +16,10 @@ class LogVisitor
      */
     public function handle(Request $request, Closure $next): Response
     {
+        if ($request->header('X-Livewire') === 'true') {
+            return $next($request);
+        }
+
         $ipAddress = $request->ip();
 
         if (!VisitorLog::where('ip_address', $ipAddress)->exists()) {

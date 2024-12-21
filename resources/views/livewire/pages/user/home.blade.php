@@ -64,23 +64,22 @@
         class="mb-2 text-lg font-thin tracking-widest text-center uppercase sm:mb-5 md:pt-14 font-main xs:text-2xl md:text-3xl lg:text-4xl">
         Tech stack</h2>
 
+
         <p class="w-4/5 mx-auto mb-5 text-center sm:mb-10 md:mb-12 xs:text-lg md:text-xl lg:text-2xl">Techonologies that I use</p>
 
         <div
             class="grid max-w-6xl gap-4 mx-auto mb-12 tracking-widest sm:mb-16 md:mb-24 xs:gap-6 grid-cols-auto-fit-120 sm:gap-8"
-            aria-label="List of technologies used">
+            aria-label="List of technologies used" role="list">
 
             @php
                 $content = ['React', 'PHP', 'Rust', 'SQL', 'Laravel', 'Typescript', 'WordPress'];
                 $images = ['react', 'php', 'rust', 'sql', 'laravel', 'ts', 'wp'];
                 $inverted = [true, false, false, false, false, false, true];
-                $shifted_top = [false, true, true, true, true, true, true];
-                $shifted_right = [false, false, false, true, false, false, false];
             @endphp
 
             @for ($i = 0; $i < count($content); $i++)
-                <x-user.stack-logo :inverted="$inverted[$i]" :large="$i === 0 ? true : false" :image="asset('images/logos/' . $images[$i] . '.webp')" :shifted_top="$shifted_top[$i]"
-                    :shifted_right="$shifted_right[$i]" :alt="$content[$i] . 'logo'" :gap="$i === 0 ? false : true">
+                <x-user.stack-logo :inverted="$inverted[$i]" :image="asset('images/logos/' . $images[$i] . '.webp')"
+                    :alt="$content[$i] . 'logo'">
                     {{ $content[$i] }}
                 </x-user.stack-logo>
             @endfor
@@ -200,8 +199,8 @@
                         <p class="text-xs sm:text-sm md:text-base text-end">Author</p>
                         <p class="text-sm sm:text-base md:text-xl">Ilya Andreev</p>
                     </div>
-                    <div class="w-16 mr-6 h-18 sm:w-20 sm:h-22 md:w-24 md:h-26">
-                        <img src="{{ asset('images/home/img-quote.jpg') }}" alt="English:a man with short hair and glasses, wearing a patterned shirt and sitting in a chair. Русский: фото мужчины с короткими волосами и очками, в рубашке с узором, сидящего в кресле."
+                    <div class="w-16 mr-6 h-18 sm:w-20 sm:h-22 md:w-20 md:h-26">
+                        <img src="{{ asset('images/home/home-quote.webp') }}" alt="English:a man with short hair and glasses, wearing a patterned shirt and sitting in a chair. Русский: фото мужчины с короткими волосами и очками, в рубашке с узором, сидящего в кресле."
                             class="object-cover object-center w-full h-full rounded-xl">
                     </div>
                 </div>

@@ -19,8 +19,8 @@
                         </div>
                         @if ($project->image)
                             <div>
-                                <figure class="relative max-w-sm mb-1">
-                                    <img class="rounded-lg max-w-48" src="{{ Storage::url($project->image) }}"
+                                <figure class="relative mb-1 max-w-120">
+                                    <img class="rounded-lg" src="{{ Storage::url($project->image) }}"
                                         alt="project's image">
                                 </figure>
                             </div>

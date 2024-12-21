@@ -17,7 +17,7 @@
     <body class="font-sans antialiased text-gray-900">
         <div class="flex flex-col items-center min-h-screen pt-6 bg-gray-100 sm:justify-center sm:pt-0">
             <div>
-                <a href="/" wire:navigate>
+                <a href="/" wire:navigate class="flex items-center justify-center w-20 h-20 p-2 bg-white shadow-md sm:max-w-md sm:rounded-lg">
                     <x-admin.application-logo class="w-20 h-20 text-gray-500 fill-current" />
                 </a>
             </div>

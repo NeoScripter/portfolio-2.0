@@ -17,7 +17,7 @@
 
             </div>
             <div class="px-10 mx-auto mt-5 md:mt-14 sm:max-w-screen-lg">
-                {{ $services->links('pagination::tailwind', ['scrollTo' => false]) }}
+                {{ $services->links(data: ['scrollTo' => false]) }}
             </div>
 
 

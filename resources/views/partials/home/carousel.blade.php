@@ -76,14 +76,14 @@
             @touchmove="moveSwipe($event)" @touchend="endSwipe()">
 
             <template x-for="slide in slides" :key="slide.index">
-                <article x-data="{ expanded: currentSlide === slide.index }" x-init="$watch('currentSlide', value => expanded = value === slide.index), $dispatch('load-images')"
+                <article x-data="{ expanded: currentSlide === slide.index, loading: true }" x-init="$watch('currentSlide', value => expanded = value === slide.index), $dispatch('load-images')"
                     class="grid gap-4 pb-2 transition-all duration-500 shadow-xl w-70" x-cloak
                     :class="expanded ? 'h-[550px] xs:w-90 grid-rows-open' : 'h-[450px] grid-rows-closed'"
                     :aria-expanded="expanded" role="region" :aria-labelledby="`portfolio-title-${slide.index}`">
                     <!-- Slide Content -->
                     <div class="flex flex-col overflow-hidden">
-                        <div class="overflow-hidden basis-9/10 image-loading" :style="`background-image: url('${slide.image_tiny}')`">
-                            <img :src="slide.image" :alt="slide.image_alt"
+                        <div class="overflow-hidden basis-9/10 image-loading" x-init="loading = !$el.querySelector('img').complete; $el.querySelector('img').addEventListener('load', () => loading = false);" :class="loading ? '' : 'image-loaded'" :style="`background-image: url('${slide.image_tiny}')`">
+                            <img @load="loading = false" :src="slide.image" :alt="slide.image_alt"
                                 class="object-cover object-top w-full h-full" loading="lazy">
                         </div>
                         <h3 :id="`portfolio-title-${slide.index}`"

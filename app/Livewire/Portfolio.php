@@ -16,36 +16,27 @@ class Portfolio extends Component
 
     protected $queryString = ['searchText'];
 
-    /**
-     * Reset pagination when the search term changes.
-     */
     public function updatedSearchText($value)
     {
         $this->resetPage();
-        $this->dispatch('load-images');
         $this->validate();
     }
 
-    /**
-     * Render the view with paginated projects.
-     */
     public function render()
     {
-        $this->dispatch('load-images');
+        $searchTerm = $this->searchText ? '%' . mb_strtolower($this->searchText, 'UTF-8') . '%' : null;
 
-        $searchTerm = "%{$this->searchText}%";
+        $projects = Project::query()
+            ->when($searchTerm, function ($query, $searchTerm) {
+                $locale = app()->getLocale();
 
-        // Get paginated projects
-        $projects = Project::when($this->searchText, function ($query) use ($searchTerm) {
-            $query->where('stack', 'LIKE', $searchTerm);
-        })
+                $query->whereRaw('LOWER(stack) LIKE ?', [$searchTerm])
+                    ->orWhereRaw('LOWER(title_' . $locale . ') LIKE ?', [$searchTerm])
+                    ->orWhereRaw('LOWER(description_' . $locale . ') LIKE ?', [$searchTerm]);
+            })
             ->orderBy('priority', 'desc')
             ->paginate(6);
 
         return view('livewire.pages.user.portfolio', compact('projects'));
     }
 }
-
-/* return view('livewire.pages.user.portfolio', [
-    'projects' => Project::orderBy('priority', 'desc')->paginate(6),
-]); */

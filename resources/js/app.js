@@ -19,6 +19,13 @@ function imageLoading() {
 }
 
 
-document.addEventListener('load-images', () => {
+/* document.addEventListener('load-images', () => {
     imageLoading();
 });
+ */
+/*
+document.addEventListener('livewire:load', () => {
+    Livewire.hook('message.processed', () => {
+        Alpine.initTree(document.body); // Reinitializes Alpine on the updated DOM.
+    });
+}); */

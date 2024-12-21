@@ -1,8 +1,8 @@
 @props(['id', 'image' => '', 'image_medium' => '', 'image_small' => '', 'image_tiny' => '', 'alt' => '', 'title' => '', 'deadline' => '', 'desc' => '', 'price' => 0])
 
 <article role="region" aria-labelledby="service-title-{{ $id }}" class="flex flex-col space-y-2 shadow-xl">
-    <div class="overflow-hidden h-80 image-loading" style="background-image: url('{{  Storage::url($image_tiny) }}');">
-        <img src="{{ Storage::url($image_medium) }}" alt="{{ $alt }}"
+    <div class="overflow-hidden h-80 image-loading" x-data="{ loading: true }" x-init="loading = !$el.querySelector('img').complete; $el.querySelector('img').addEventListener('load', () => loading = false);" :class="loading ? '' : 'image-loaded'" style="background-image: url('{{  Storage::url($image_tiny) }}');">
+        <img @load="loading = false" src="{{ Storage::url($image_medium) }}" alt="{{ $alt }}"
             class="object-cover object-center w-full h-full transition-all duration-500 hover:scale-110" loading="lazy">
     </div>
 
